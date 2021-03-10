@@ -1,0 +1,31 @@
+\documentclass[preview,border=4mm,convert={density=600,outext=.png}]{standalone}
+ 
+\usepackage{url}
+\usepackage{times}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usepackage{color}
+\begin{document}
+
+\begin{figure}[h]
+    \centering
+    \caption{Piece-wise linear isoquants depicting constant levels of labour input as combinations of $L_c$ and $L_a$, for different values of raw skill $v_0$. Source: author's own compilation.}
+    \label{fig:isoq}
+    \begin{tikzpicture}[scale=2] 
+    \draw (0,0) -- (3.5,0) node[right] {$L_c$}; 
+    \draw (0,0) -- (0,3.5) node[above] {$L_a$};
+    \node[below] at (-0.05,-0.05) {$0$};
+    
+    \draw (0,3)[densely dotted, semithick, path fading=west] -- (2.1544346900319, 0.6463304070096) -- (3,0.6463304070096);
+    \draw[color=black, dashdotdotted, semithick, path fading=west] (0,3) -- (1.931,0.579) -- (3,0.504);
+    %\node[color=red, right] at (2,3.6) {$v_0 = 0.1$};
+    \draw[color=black, dashdotted, semithick, path fading=west] (0,3) -- (1.366, 0.411) -- (2,0);
+    %\node[color=blue, right] at (2, 3) {$v_0 = 0.5$};
+    \draw[color=black, dashed, semithick, path fading=west] (0,3) -- (1.155,0.345) -- (1.333,0);
+    %\node[color=orange, right] at (2, 2.4){$v_0 = 0.75$};
+    \draw[color=lightgray, thick] (0,0) -- (1.155,0.342) -- (1.366, 0.411) -- (1.931,0.579) -- (3,0.9);
+    \node[above] at (3,1) {$\Phi L = uL_c$};
+    \end{tikzpicture}
+    \end{figure}
+
+\end{document}
