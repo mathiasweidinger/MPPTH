@@ -9,7 +9,7 @@ library(raster)
 library(cowplot)
 library(data.table)
 library(sf)
-library(tmap)
+library(tmap) # I can make maps with this.
 
 data(World)
 
