@@ -85,9 +85,9 @@ tmp_p
 pre_p
 
 save_plot("outputs/cover_tmx.png", plot = tmx_p)
-save_plot("outputs/cover_tmx.png", plot = tmn_p)
-save_plot("outputs/cover_tmx.png", plot = tmp_p)
-save_plot("outputs/cover_tmx.png", plot = pre_p)
+save_plot("outputs/cover_tmn.png", plot = tmn_p)
+save_plot("outputs/cover_tmp.png", plot = tmp_p)
+save_plot("outputs/cover_pre.png", plot = pre_p)
 
 tmap_mode("view")
 
