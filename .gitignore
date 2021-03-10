@@ -7,4 +7,5 @@
 *.out
 *.gz
 *.Rproj.user
+.Rhistory
 inputs
