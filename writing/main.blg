@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: References.bib
+Warning--empty note in Bhalotra2002
+Warning--empty note in Bhalotra2000
+Warning--empty note in Boutin2014
+Warning--empty note in DelCarpio2008
+Warning--empty note in DelCarpio2012
+Warning--empty note in Dumas2015
+Warning--empty note in Edmonds2007
+Warning--empty publisher in Lewbel1997
+Warning--empty publisher in Marx1848
+Warning--empty note in Pal2012
+Warning--empty note in Ravallion2019
+Warning--empty note in Ravallion2009
+Warning--there's a number but no volume in Sen1962
+You've used 99 entries,
+            1935 wiz_defined-function locations,
+            1151 strings with 21360 characters,
+and the built_in function-call counts, 37532 in all, are:
+= -- 3722
+> -- 1527
+< -- 75
++ -- 504
+- -- 504
+* -- 3287
+:= -- 6693
+add.period$ -- 285
+call.type$ -- 99
+change.case$ -- 748
+chr.to.int$ -- 99
+cite$ -- 112
+duplicate$ -- 1321
+empty$ -- 2569
+format.name$ -- 669
+if$ -- 7156
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 82
+newline$ -- 484
+num.names$ -- 304
+pop$ -- 527
+preamble$ -- 1
+purify$ -- 745
+quote$ -- 0
+skip$ -- 1017
+stack$ -- 0
+substring$ -- 2734
+swap$ -- 86
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 578
+warning$ -- 13
+while$ -- 329
+width$ -- 0
+write$ -- 1258
+(There were 13 warnings)
