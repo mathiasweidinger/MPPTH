@@ -6,7 +6,7 @@ library(data.table)
 setwd ("/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis")
 
 ## import data for post-planting visit 2010 (t=1)
-file_paths <- fs::dir_ls("lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/PPW1/Household")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/PPW1/Household")
 lst <- lapply(file_paths, read.csv)
 
 roster_1 <- as.data.frame(lst[[2]]) %>% select("zone":"s1q3", "s1q4", "s1q8")
@@ -18,11 +18,11 @@ labor_1 <- as.data.frame(lst[[4]]) %>% select("zone", "state",	"lga", "sector", 
                                               "s3q7", "s3q8","s3q14", "s3q18", "s3q21a","s3q21b",
                                               "s3q26", "s3q30", "s3q33a", "s3q33b","s3q37a", "s3q37b",
                                               "s3q38a", "s3q38b")
-cons_1 <- as.data.frame(read.csv("lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/cons_agg_wave1_visit1.csv",
+cons_1 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/cons_agg_wave1_visit1.csv",
                                      header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 ## import data for post-harvest visit 2011 (t=2)
-file_paths <- fs::dir_ls("lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/PHW1/Household")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/PHW1/Household")
 lst <- lapply(file_paths, read.csv)
 
 roster_2 <- as.data.frame(lst[[17]]) %>%  select("zone":"s1q3", "s1q4", "s1q7")
@@ -38,11 +38,11 @@ labor_2 <- as.data.frame(lst[[20]]) %>% select("zone", "state",	"lga",	"sector",
                                                "indiv","s3aq4", "s3aq5","s3aq11", "s3aq15",
                                                "s3aq18a","s3aq18b", "s3aq23", "s3aq27", "s3aq30a",
                                                "s3aq30b","s3aq39a", "s3aq39b", "s3aq40a", "s3aq40b")
-cons_2 <- as.data.frame(read.csv("lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/cons_agg_wave1_visit2.csv",
+cons_2 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/cons_agg_wave1_visit2.csv",
                                  header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 ## import data for post-planting visit 2012 (t=3)
-file_paths <- fs::dir_ls("lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Post Planting Wave 2/Household")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Post Planting Wave 2/Household")
 lst <- lapply(file_paths, read.csv)
 
 roster_3 <- as.data.frame(lst[[2]]) %>%  select("zone":"s1q3", "s1q6", "s1q8")
@@ -54,11 +54,11 @@ labor_3 <- as.data.frame(lst[[4]]) %>% select("zone", "state",	"lga",	"sector",	
                                               "indiv","s3aq7", "s3aq8","s3aq14", "s3aq18", "s3aq21a",
                                               "s3aq21b", "s3aq27", "s3aq31", "s3aq34a", "s3aq34b",
                                               "s3aq39a", "s3aq39b", "s3aq40a", "s3aq40b")
-cons_3 <- as.data.frame(read.csv("lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/cons_agg_wave2_visit1.csv",
+cons_3 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/cons_agg_wave2_visit1.csv",
                                  header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 ## import data for post-harvest visit 2013 (t=4)
-file_paths <- fs::dir_ls("lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Post Harvest Wave 2/Household")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Post Harvest Wave 2/Household")
 lst <- lapply(file_paths, read.csv)
 
 roster_4 <- as.data.frame(lst[[17]]) %>%  select("zone":"s1q3", "s1q4", "s1q7")
@@ -74,11 +74,11 @@ labor_4 <- as.data.frame(lst[[20]]) %>% select("zone", "state",	"lga",	"sector",
                                                "s3aq18a1","s3aq18a2", "s3aq23", "s3aq27",
                                                "s3aq30a1", "s3aq30a2","s3aq39b1", "s3aq39b2",
                                                "s3aq40b1", "s3aq40b2")
-cons_4 <- as.data.frame(read.csv("lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/cons_agg_wave2_visit2.csv",
+cons_4 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/cons_agg_wave2_visit2.csv",
                                  header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 ## import data for post-planting visit 2015 (t=5)
-file_paths <- fs::dir_ls("lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/P")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/P")
 lst <- lapply(file_paths, read.csv)
 
 roster_5 <- as.data.frame(lst[[14]]) %>%  select("zone":"s1q3","s1q6", "s1q8")
@@ -88,11 +88,11 @@ labor_5 <- as.data.frame(lst[[15]]) %>% select("zone", "state",	"lga",	"sector",
                                                "indiv","s3q7", "s3q8","s3q14", "s3q18", "s3q21a",
                                                "s3q21b", "s3q27", "s3q31", "s3q34a", "s3q34b",
                                                "s3q39_new", "s3q40_new")
-cons_5 <- as.data.frame(read.csv("lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/cons_agg_wave3_visit1.csv",
+cons_5 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/cons_agg_wave3_visit1.csv",
                                  header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 ## import data for post-harvest visit 2016 (t=6)
-file_paths <- fs::dir_ls("lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/H")
+file_paths <- fs::dir_ls("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/H")
 lst <- lapply(file_paths, read.csv)
 
 roster_6 <- as.data.frame(lst[[19]]) %>% select("zone":"s1q3", "s1q4", "s1q7")
@@ -104,7 +104,7 @@ labor_6 <- as.data.frame(lst[[21]]) %>% select("zone", "state",	"lga",	"sector",
                                                "indiv","s3q7", "s3q8","s3q14", "s3q18", "s3q21a",
                                                "s3q21b", "s3q27", "s3q31", "s3q34a", "s3q34b",
                                                "s3q39_new", "s3q40_new")
-cons_6 <- as.data.frame(read.csv("lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/cons_agg_wave3_visit2.csv",
+cons_6 <- as.data.frame(read.csv("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/cons_agg_wave3_visit2.csv",
                                  header = TRUE, sep = ",", dec = ".")) %>% select("zone":"hhweight")
 
 # There are several flaws with wave 4 data:
@@ -324,13 +324,13 @@ NGA_panel %<>%
                          ))
 
 # import geo-information (for now limited to coordinates...but selection can/should be extended!)
-geo_1 <- cbind(wave = 1, as.data.frame(read.csv("lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/Geodata/nga_householdgeovariables_y1.csv"))[,1:8])
+geo_1 <- cbind(wave = 1, as.data.frame(read.csv("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/Geodata/nga_householdgeovariables_y1.csv"))[,1:8])
 geo_1 %<>% rename(
   LON_DD_MOD = lon_dd_mod,
   LAT_DD_MOD = lat_dd_mod
 )
-geo_2 <- cbind(wave = 2, as.data.frame(read.csv("lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Geodata Wave 2/nga_householdgeovars_y2.csv"))[,c(1:6,46,47)])
-geo_3 <- cbind(wave = 3, as.data.frame(read.csv("lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/nga_householdgeovars_y3.csv"))[,c(1:6,46,47)])
+geo_2 <- cbind(wave = 2, as.data.frame(read.csv("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Geodata Wave 2/nga_householdgeovars_y2.csv"))[,c(1:6,46,47)])
+geo_3 <- cbind(wave = 3, as.data.frame(read.csv("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/nga_householdgeovars_y3.csv"))[,c(1:6,46,47)])
 
 # str_sort(names(geo_1)) # varnames are different for different waves...need to adjust 
 # str_sort(names(geo_2))
@@ -338,9 +338,45 @@ geo_3 <- cbind(wave = 3, as.data.frame(read.csv("lsms_data/NGA_2015_GHSP-W3_v02_
 
 
 NGA_panel %<>% full_join(geo_1, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid"))
-NGA_panel %<>% full_join(geo_2, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid", "LON_DD_MOD","LAT_DD_MOD"))
-NGA_panel %<>% full_join(geo_3, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid","LON_DD_MOD","LAT_DD_MOD"))
+
+NGA_panel %<>% full_join(geo_2, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid"))
+NGA_panel %<>% 
+  mutate(LON_DD_MOD.x = case_when(wave == 2 & is.na(LON_DD_MOD.x) ~ LON_DD_MOD.y,
+                                  wave != 2 ~ LON_DD_MOD.x
+                                  ))
+NGA_panel %<>% 
+  mutate(LAT_DD_MOD.x = case_when(wave == 2 & is.na(LAT_DD_MOD.x) ~ LAT_DD_MOD.y,
+                                  wave != 2 ~ LAT_DD_MOD.x
+                                  ))
+NGA_panel <- NGA_panel[,1:107]
+NGA_panel %<>% 
+  rename(
+    LAT_DD_MOD = LAT_DD_MOD.x,
+    LON_DD_MOD = LON_DD_MOD.x
+    )
+
+NGA_panel %<>% full_join(geo_3, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid"))
+NGA_panel %<>% 
+  mutate(LON_DD_MOD.x = case_when(wave == 3 & is.na(LON_DD_MOD.x) ~ LON_DD_MOD.y,
+                                  wave != 3 ~ LON_DD_MOD.x
+  ))
+NGA_panel %<>% 
+  mutate(LAT_DD_MOD.x = case_when(wave == 3 & is.na(LAT_DD_MOD.x) ~ LAT_DD_MOD.y,
+                                  wave != 3 ~ LAT_DD_MOD.x
+  ))
+NGA_panel <- NGA_panel[,1:107]
+NGA_panel %<>% 
+  rename(
+    LAT_DD_MOD = LAT_DD_MOD.x,
+    LON_DD_MOD = LON_DD_MOD.x
+  )
+
 NGA_panel <- NGA_panel[!is.na(NGA_panel$t), ] # delete added obs
 
-save(NGA_panel, file = "NGA_panel.Rda") #save and your done!
+sapply(NGA_panel[,106:107], function(x) sum(is.na(x))) # there are NAs in coordinates
+table(NGA_panel$t, is.na(NGA_panel$LAT_DD_MOD)) # missing values are not systematically missing
+NGA_panel <- NGA_panel[! is.na(NGA_panel$LAT_DD_MOD),]
+NGA_panel <- NGA_panel[! is.na(NGA_panel$LON_DD_MOD),]
+
+save(NGA_panel, file = "outputs/NGA_panel.Rda") #save and your done!
 rm(list = ls(all=T))
