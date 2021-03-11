@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  10 MAR 2021 11:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  11 MAR 2021 19:08
 entering extended mode
 **c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
 (c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
@@ -725,6 +725,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip89
 )
 Package hyperref Info: Option `final' set `true' on input line 39.
+Package hyperref Info: Option `colorlinks' set `true' on input line 46.
 \c@theorem=\count345
  ("C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def"
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
@@ -733,22 +734,22 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 ) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
  ("C:\Program Files\MiKTeX\tex/latex/ragged2e\ragged2e.sty"
 Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
  ("C:\Program Files\MiKTeX\tex/latex/ms\everysel.sty"
@@ -790,7 +791,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 62.
+Package hyperref Info: Link coloring ON on input line 69.
  ("C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  ("C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty"
@@ -800,18 +801,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count353
 )
-LaTeX Info: Redefining \ref on input line 62.
-LaTeX Info: Redefining \pageref on input line 62.
-LaTeX Info: Redefining \nameref on input line 62.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
  (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
  ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
  ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -819,57 +820,63 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {C:/Users/mathias/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2
 
 ] [3] [4] [5] [6] [7] [8] [9] [10]
-<fig_production_auffhammer.JPG, id=371, 714.2685pt x 393.8715pt>
+<fig_production_auffhammer.JPG, id=375, 714.2685pt x 393.8715pt>
 File: fig_production_auffhammer.JPG Graphic file (type jpg)
 <use fig_production_auffhammer.JPG>
-Package pdftex.def Info: fig_production_auffhammer.JPG  used on input line 144.
+Package pdftex.def Info: fig_production_auffhammer.JPG  used on input line 151.
 (pdftex.def)             Requested size: 357.13338pt x 196.93526pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [11] [12 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_production_auffhammer.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 []\OT1/cmr/bx/n/12 Climate
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 []\OT1/cmr/bx/n/12 Response
  []
 
 [13] [14] [15] [16] [17] [18] [19]
-<fig_skilltech.jpg, id=619, 538.11038pt x 564.9105pt>
+<fig_skilltech.jpg, id=623, 538.11038pt x 564.9105pt>
 File: fig_skilltech.jpg Graphic file (type jpg)
 <use fig_skilltech.jpg>
-Package pdftex.def Info: fig_skilltech.jpg  used on input line 275.
+Package pdftex.def Info: fig_skilltech.jpg  used on input line 282.
 (pdftex.def)             Requested size: 269.05452pt x 282.45456pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [20] [21 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_skilltech.jpg>]
-<fig_isoquants.jpg, id=643, 566.71725pt x 564.00713pt>
+<fig_isoquants.jpg, id=647, 566.71725pt x 564.00713pt>
 File: fig_isoquants.jpg Graphic file (type jpg)
 <use fig_isoquants.jpg>
-Package pdftex.def Info: fig_isoquants.jpg  used on input line 297.
+Package pdftex.def Info: fig_isoquants.jpg  used on input line 304.
 (pdftex.def)             Requested size: 283.35793pt x 282.00287pt.
- [22 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [23] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [24] [25] [26] [27] [28] [29] [30] [31]) [32] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
+ [22 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [23]
+<../outputs/climatezones.png, id=680, 878.38162pt x 473.06737pt>
+File: ../outputs/climatezones.png Graphic file (type png)
+<use ../outputs/climatezones.png>
+Package pdftex.def Info: ../outputs/climatezones.png  used on input line 351.
+(pdftex.def)             Requested size: 219.59486pt x 118.26654pt.
+ [24] [25 <../outputs/climatezones.png>] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [26] [27] [28] [29] [30] [31] [32] [33]) [34] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 32DF3774A7E5955C177C7CFDF827AB1F;682.
+(rerunfilecheck)             Checksum: C3CD58A8A06BD68D3059FB623F474E52;747.
  ) 
 Here is how much of TeX's memory you used:
- 25683 strings out of 479799
- 464120 string characters out of 2879592
- 835029 words of memory out of 3000000
- 41924 multiletter control sequences out of 15000+200000
+ 25719 strings out of 479799
+ 464802 string characters out of 2879592
+ 836284 words of memory out of 3000000
+ 41947 multiletter control sequences out of 15000+200000
  551369 words of font info for 90 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,11n,115p,1902b,629s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1440.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (32 pages, 856617 bytes).
+Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (34 pages, 1137911 bytes).
 PDF statistics:
- 819 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 858 PDF objects out of 1000 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

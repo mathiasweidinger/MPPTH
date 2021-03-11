@@ -37,6 +37,13 @@
 \usepackage{natbib}
 \usepackage{hyperref}
 \hypersetup{final}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cyan,
+    filecolor=cyan,      
+    urlcolor=cyan,
+    citecolor=cyan
+}
 
 %Indentation
 \setlength\parindent{20pt}
@@ -328,7 +335,26 @@ where $p_1$, $p_2$, $p_3$ and $p_4$ are the prices for non-agricultural products
 
 \section{Empirical application}
 \label{sec:empirical_application}
-\subsection{Econometric strategy}
+
+Nigeria is the most populous and the sixth-most densely populated country in Africa\footnote{Indeed, with its approximately 200 million people, Nigeria is the sixth-most populous country in the world.}, and its 2020 nominal GDP of USD $450$ billion makes it the biggest economy on the continent \citep{WorldBank2021}.\footnote{In terms of purchasing power parity, only Egypt narrowly outperforms Nigeria.} About half of the population live in urban areas, particularly the large metropolitan areas in the South and Southwest towards the country's coast on the Gulf of Guinea. Moving North, the population density decreases gradually, giving way to wide savannahs and steppes which are characterised predominantly by agriculture.  
+
+\subsection{Case Selection}
+\label{sub:case_selection}
+Nigeria exhibits some characteristics which make it a particularly well-suited case to study in the context of this paper. First, while exact estimates are hard to come by, it is generally acknowledged that child labour is rampant. The United States Department of Labor estimates that 13 million children work on a regular basis (\citeyear{USDepartmentofLabor2021}). In May 2019, the ILO's Country Office Director stated publically that at least 43 percent of Nigerian children - 15 million - were trapped in forced, largely unpaid labour \citep{ILO2019}. This is double the SSA average, which itself is the highest regional average in the world. While child work is also common in other sectors such as domestic servitude or gold mining, the vast majority of working children are employed on their families' farms.
+
+Second, Nigeria exhibits high levels of (rural) poverty and socio-economic inequality. Although it is one of the fastest-growing countries in the world, almost half of its population still grapples with extreme poverty. With a Gini index of 35, income inequality lies close to the SSA average. This shows a highly uneven distribution of wealth between many poor and very few rich households. According to the most recent national report, 40 percent of the total population, or almost 83 million people, lived below the country's poverty line of 137,439 Naira (USD 381.75) per person per year. While most wealth is located in the big metropolitan areas such as Lagos or Ibadan, poverty is both more prevalent and deeper in rural areas, where the headcount is above 50 percent and the poverty gap amounts to 17.4 percent of the poverty line in contrast to a mere four percent observed in urban areas \citep{NBS2020}.
+
+The simultaneous concentration of (extreme) poverty and rampant child labour in rural areas closely resembles two key assumptions of the model derived in section \ref{sec:model} - the luxury axiom, operationalised by the subsistence terms in the Stone-Geary utility function, and the agricultural focus of households' economic activity. Together, these facts suggest that Nigeria is a highly relevant and suitable case for testing the model's hypotheses about agricultural child labour.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.25]{../outputs/climatezones.png}
+    \caption{Climate Zones of Nigeria.}
+    \caption*{\footnotesize{\textit{Note:} Köppen-Geiger climate classification map of Nigeria at 1-km resolution(1980-2016). \textit{Source:} \citet{Beck2018}.}}
+    \label{fig:climate_zones}
+    \end{figure}
+
+    \subsection{Econometric strategy:}
 \label{sub:econometric_strategy}
 \subsection{Data}
 \label{sub:data}

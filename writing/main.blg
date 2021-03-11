@@ -18,45 +18,45 @@ Warning--empty note in Pal2012
 Warning--empty note in Ravallion2019
 Warning--empty note in Ravallion2009
 Warning--there's a number but no volume in Sen1962
-You've used 99 entries,
+You've used 104 entries,
             1935 wiz_defined-function locations,
-            1151 strings with 21360 characters,
-and the built_in function-call counts, 37532 in all, are:
-= -- 3722
-> -- 1527
-< -- 75
-+ -- 504
-- -- 504
-* -- 3287
-:= -- 6693
-add.period$ -- 285
-call.type$ -- 99
-change.case$ -- 748
-chr.to.int$ -- 99
-cite$ -- 112
-duplicate$ -- 1321
-empty$ -- 2569
-format.name$ -- 669
-if$ -- 7156
+            1177 strings with 22015 characters,
+and the built_in function-call counts, 39031 in all, are:
+= -- 3872
+> -- 1588
+< -- 79
++ -- 524
+- -- 524
+* -- 3401
+:= -- 6984
+add.period$ -- 298
+call.type$ -- 104
+change.case$ -- 785
+chr.to.int$ -- 104
+cite$ -- 117
+duplicate$ -- 1377
+empty$ -- 2662
+format.name$ -- 694
+if$ -- 7433
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 82
-newline$ -- 484
-num.names$ -- 304
-pop$ -- 527
+missing$ -- 83
+newline$ -- 507
+num.names$ -- 319
+pop$ -- 550
 preamble$ -- 1
-purify$ -- 745
+purify$ -- 780
 quote$ -- 0
-skip$ -- 1017
+skip$ -- 1063
 stack$ -- 0
-substring$ -- 2734
-swap$ -- 86
+substring$ -- 2810
+swap$ -- 87
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 578
+type$ -- 608
 warning$ -- 13
-while$ -- 329
+while$ -- 341
 width$ -- 0
-write$ -- 1258
+write$ -- 1319
 (There were 13 warnings)

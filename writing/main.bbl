@@ -61,6 +61,13 @@ Baylis, P. (2020).
 \newblock {Temperature and temperament: Evidence from Twitter}.
 \newblock {\em Journal of Public Economics}, 184:104161.
 
+\bibitem[Beck et~al., 2018]{Beck2018}
+Beck, H.~E., Zimmermann, N.~E., McVicar, T.~R., Vergopolan, N., Berg, A., and
+  Wood, E.~F. (2018).
+\newblock {Present and future k{\"{o}}ppen-geiger climate classification maps
+  at 1-km resolution}.
+\newblock {\em Scientific Data}, 5(1):1--12.
+
 \bibitem[Becker, 1964]{Becker1964}
 Becker, G. (1964).
 \newblock {\em {Human Capital: A Theoretical and Empirical Analysis, with
@@ -287,6 +294,11 @@ ILO (2017).
 \newblock {Global Estimates of Child Labour: Results and trends 2012-2016}.
 \newblock Technical report, International Labour Office, Geneva.
 
+\bibitem[ILO, 2019]{ILO2019}
+ILO (2019).
+\newblock {ILO calls actors to join the movement against child labour in
+  Africa}.
+
 \bibitem[IMF, 2020]{IMF2020}
 IMF (2020).
 \newblock {Regional Economic Outlook: Sub-Saharan Africa}.
@@ -387,6 +399,11 @@ Munasinghe, L., Jun, T., and Rind, D.~H. (2012).
 \newblock {Climate change: A new metric to measure changes in the frequency of
   extreme temperatures using record data}.
 \newblock {\em Climatic Change}, 113(3-4):1001--1024.
+
+\bibitem[NBS, 2020]{NBS2020}
+NBS (2020).
+\newblock {Poverty and Inequality in Nigeria 2019: Executive Summary}.
+\newblock Technical report, National Bureau of Statistics, Abuja.
 
 \bibitem[Noack, 2019]{Noack2019}
 Noack, F. (2019).
@@ -548,6 +565,11 @@ Tol, R. S.~J. (2009).
 UNICEF (2020).
 \newblock {Child labour}.
 
+\bibitem[{US Department of Labor}, 2021]{USDepartmentofLabor2021}
+{US Department of Labor} (2021).
+\newblock {Child Labor Report - Nigeria}.
+\newblock Technical report, US Department of Labor, Washington.
+
 \bibitem[Welch et~al., 2010]{Welch2010}
 Welch, J.~R., Vincent, J.~R., Auffhammer, M., Moya, P.~F., Dobermann, A., and
   Dawe, D. (2010).
@@ -555,5 +577,9 @@ Welch, J.~R., Vincent, J.~R., Auffhammer, M., Moya, P.~F., Dobermann, A., and
   sensitivities to minimum and maximum temperatures}.
 \newblock {\em Proceedings of the National Academy of Sciences},
   107(33):14562--14567.
+
+\bibitem[{World Bank}, 2021]{WorldBank2021}
+{World Bank} (2021).
+\newblock {World Bank Open Data - Nigeria}.
 
 \end{thebibliography}
