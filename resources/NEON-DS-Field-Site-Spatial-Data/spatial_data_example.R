@@ -1,6 +1,6 @@
 
  
-setwd("C:/Users/mathias/Desktop/NEON-DS-Field-Site-Spatial-Data")
+setwd("C:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/resources/NEON-DS-Field-Site-Spatial-Data")
 
 install.packages("raster")
 library(raster)
@@ -36,7 +36,7 @@ plot(chm, main="Lidar Canopy Heights Model \n SJER, California")
 
 ## Overlay the centroid points and the stem locations on CHM plot
 
-#plot the chm
+# plot the chm
 
 myCol <- terrain.colors(6)
 plot(chm, col=myCol, main="Plot & Tree Locations", breaks=c(-2,0,2,10,40))
