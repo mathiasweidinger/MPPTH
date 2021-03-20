@@ -323,19 +323,58 @@ NGA_panel %<>%
                           t == 5 | t == 6 ~ 3, # wave 3
                          ))
 
+
 # import geo-information (for now limited to coordinates...but selection can/should be extended!)
-geo_1 <- cbind(wave = 1, as.data.frame(read.csv("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/Geodata/nga_householdgeovariables_y1.csv"))[,1:8])
+geo_1 <- cbind(wave = 1, as.data.frame(read.csv("inputs/lsms_data/NGA_2010_GHSP-W1_v03_M_CSV/Geodata/nga_householdgeovariables_y1.csv")))
 geo_1 %<>% rename(
   LON_DD_MOD = lon_dd_mod,
   LAT_DD_MOD = lat_dd_mod
 )
-geo_2 <- cbind(wave = 2, as.data.frame(read.csv("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Geodata Wave 2/nga_householdgeovars_y2.csv"))[,c(1:6,46,47)])
-geo_3 <- cbind(wave = 3, as.data.frame(read.csv("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/nga_householdgeovars_y3.csv"))[,c(1:6,46,47)])
 
-# str_sort(names(geo_1)) # varnames are different for different waves...need to adjust 
-# str_sort(names(geo_2))
-# str_sort(names(geo_3))
+geo_2 <- cbind(wave = 2, as.data.frame(read.csv("inputs/lsms_data/NGA_2012_GHSP-W2_v02_M_CSV/Geodata Wave 2/nga_householdgeovars_y2.csv")))
 
+geo_3 <- cbind(wave = 3, as.data.frame(read.csv("inputs/lsms_data/NGA_2015_GHSP-W3_v02_M_CSV/nga_householdgeovars_y3.csv")))
+
+str_sort(names(geo_1)) # varnames are different for different waves...need to adjust 
+str_sort(names(geo_2)) # difference to t=1 is distY1Y2
+str_sort(names(geo_3)) # difference to t=1 is distY1Y3, and...
+# wavewise colnames, e.g. w1 = h2010_eviarea, h2010_evimax, h2010_grn, h2010_sen, h2010_tot, h2010_wetQ, h2010_wetQstart
+
+geo_1 %<>% rename(h_eviarea = h2010_eviarea,
+                  h_evimax = h2010_evimax,
+                  h_grn = h2010_grn,
+                  h_sen = h2010_sen,
+                  h_tot = h2010_tot,
+                  h_wetQ = h2010_wetQ,
+                  h_wetQstart = h2010_wetQstart)
+geo_1 <- cbind(dist_Y1=0, geo_1) # add variable to w1
+geo_1 <- geo_1[,-11]
+
+geo_2 %<>% rename(h_eviarea = h2012_eviarea,
+                  h_evimax = h2012_evimax,
+                  h_grn = h2012_grn,
+                  h_sen = h2012_sen,
+                  h_tot = h2012_tot,
+                  h_wetQ = h2012_wetQ,
+                  h_wetQstart = h2012_wetQstart,
+                  dist_borderpost = dist_border2,
+                  dist_popcenter = dist_popcenter2,
+                  dist_road = dist_road2,
+                  dist_Y1 = distY1Y2) # streamline naming
+geo_2 <- geo_2[,-8]
+
+geo_3 %<>% rename(h_eviarea = h2015_eviarea,
+                  h_evimax = h2015_evimax,
+                  h_grn = h2015_grn,
+                  h_sen = h2015_sen,
+                  h_tot = h2015_tot,
+                  h_wetQ = h2015_wetQ,
+                  h_wetQstart = h2015_wetQstart,
+                  dist_borderpost = dist_border2,
+                  dist_popcenter = dist_popcenter2,
+                  dist_road = dist_road2,
+                  dist_Y1 = distY1Y3) # streamline naming
+geo_3 <- geo_3[,-20]
 
 NGA_panel %<>% full_join(geo_1, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid"))
 
@@ -348,12 +387,208 @@ NGA_panel %<>%
   mutate(LAT_DD_MOD.x = case_when(wave == 2 & is.na(LAT_DD_MOD.x) ~ LAT_DD_MOD.y,
                                   wave != 2 ~ LAT_DD_MOD.x
                                   ))
-NGA_panel <- NGA_panel[,1:107]
 NGA_panel %<>% 
-  rename(
-    LAT_DD_MOD = LAT_DD_MOD.x,
-    LON_DD_MOD = LON_DD_MOD.x
-    )
+  mutate(af_bio_1.x = case_when(wave == 2 & is.na(af_bio_1.x) ~ af_bio_1.y,
+                                wave != 2 ~ af_bio_1.x
+                                ))
+NGA_panel %<>% 
+  mutate(af_bio_12.x = case_when(wave == 2 & is.na(af_bio_12.x) ~ af_bio_12.y,
+                                 wave != 2 ~ af_bio_12.x
+                                 ))
+NGA_panel %<>% 
+  mutate(af_bio_13.x = case_when(wave == 2 & is.na(af_bio_13.x) ~ af_bio_13.y,
+                                 wave != 2 ~ af_bio_13.x
+                                 ))
+NGA_panel %<>% 
+  mutate(af_bio_16.x = case_when(wave == 2 & is.na(af_bio_16.x) ~ af_bio_16.y,
+                                 wave != 2 ~ af_bio_16.x
+                                 ))
+NGA_panel %<>% 
+  mutate(af_bio_8.x = case_when(wave == 2 & is.na(af_bio_8.x) ~ af_bio_8.y,
+                                wave != 2 ~ af_bio_8.x
+                                ))
+NGA_panel %<>% 
+  mutate(afmnslp_pct.x = case_when(wave == 2 & is.na(afmnslp_pct.x) ~ afmnslp_pct.y,
+                                   wave != 2 ~ afmnslp_pct.x
+                                   ))
+NGA_panel %<>% 
+  mutate(anntot_avg.x = case_when(wave == 2 & is.na(anntot_avg.x) ~ anntot_avg.y,
+                                  wave != 2 ~ anntot_avg.x
+                                  ))
+NGA_panel %<>% 
+  mutate(dist_admctr.x = case_when(wave == 2 & is.na(dist_admctr.x) ~ dist_admctr.y,
+                                   wave != 2 ~ dist_admctr.x
+                                   ))
+NGA_panel %<>% 
+  mutate(dist_borderpost.x = case_when(wave == 2 & is.na(dist_borderpost.x) ~ dist_borderpost.y,
+                                       wave != 2 ~ dist_borderpost.x
+                                       ))
+NGA_panel %<>% 
+  mutate(dist_market.x = case_when(wave == 2 & is.na(dist_market.x) ~ dist_market.y,
+                                   wave != 2 ~ dist_market.x
+                                   ))
+NGA_panel %<>% 
+  mutate(dist_popcenter.x = case_when(wave == 2 & is.na(dist_popcenter.x) ~ dist_popcenter.y,
+                                      wave != 2 ~ dist_popcenter.x
+                                      ))
+NGA_panel %<>% 
+  mutate(dist_road.x = case_when(wave == 2 & is.na(dist_road.x) ~ dist_road.y,
+                                 wave != 2 ~ dist_road.x
+                                 ))
+NGA_panel %<>% 
+  mutate(dist_Y1.x = case_when(wave == 2 & is.na(dist_Y1.x) ~ dist_Y1.y,
+                               wave != 2 ~ dist_Y1.x
+                               ))
+NGA_panel %<>% 
+  mutate(eviarea_avg.x = case_when(wave == 2 & is.na(eviarea_avg.x) ~ eviarea_avg.y,
+                                   wave != 2 ~ eviarea_avg.x
+                                   ))
+NGA_panel %<>% 
+  mutate(evimax_avg.x = case_when(wave == 2 & is.na(evimax_avg.x) ~ evimax_avg.y,
+                                  wave != 2 ~ evimax_avg.x
+                                  ))
+NGA_panel %<>% 
+  mutate(fsrad3_agpct.x = case_when(wave == 2 & is.na(fsrad3_agpct.x) ~ fsrad3_agpct.y,
+                                    wave != 2 ~ fsrad3_agpct.x
+                                    ))
+NGA_panel %<>% 
+  mutate(fsrad3_lcmaj.x = case_when(wave == 2 & is.na(fsrad3_lcmaj.x) ~ fsrad3_lcmaj.y,
+                                    wave != 2 ~ fsrad3_lcmaj.x
+                                    ))
+NGA_panel %<>% 
+  mutate(grn_avg.x = case_when(wave == 2 & is.na(grn_avg.x) ~ grn_avg.y,
+                               wave != 2 ~ grn_avg.x
+                               ))
+NGA_panel$h_eviarea.x <- as.numeric(NGA_panel$h_eviarea.x)
+NGA_panel %<>% 
+  mutate(h_eviarea.x = case_when(wave == 2 & is.na(h_eviarea.x) ~ h_eviarea.y,
+                                 wave != 2 ~ h_eviarea.x
+                                 ))
+NGA_panel %<>% 
+  mutate(h_evimax.x = case_when(wave == 2 & is.na(h_evimax.x) ~ h_evimax.y,
+                                wave != 2 ~ h_evimax.x
+                                ))
+NGA_panel %<>% 
+  mutate(h_grn.x = case_when(wave == 2 & is.na(h_grn.x) ~ h_grn.y,
+                             wave != 2 ~ h_grn.x
+                             ))
+NGA_panel %<>% 
+  mutate(h_sen.x = case_when(wave == 2 & is.na(h_sen.x) ~ h_sen.y,
+                             wave != 2 ~ h_sen.x
+                             ))
+NGA_panel %<>% 
+  mutate(h_tot.x = case_when(wave == 2 & is.na(h_tot.x) ~ h_tot.y,
+                             wave != 2 ~ h_tot.x
+                             ))
+NGA_panel %<>% 
+  mutate(h_wetQ.x = case_when(wave == 2 & is.na(h_wetQ.x) ~ h_wetQ.y,
+                              wave != 2 ~ h_wetQ.x
+                              ))
+NGA_panel %<>% 
+  mutate(h_wetQstart.x = case_when(wave == 2 & is.na(h_wetQstart.x) ~ h_wetQstart.y,
+                                   wave != 2 ~ h_wetQstart.x
+                                   ))
+NGA_panel %<>% 
+  mutate(sen_avg.x = case_when(wave == 2 & is.na(sen_avg.x) ~ sen_avg.y,
+                               wave != 2 ~ sen_avg.x
+                               ))
+NGA_panel %<>% 
+  mutate(sq2.x = case_when(wave == 2 & is.na(sq2.x) ~ sq2.y,
+                           wave != 2 ~ sq2.x
+                           ))
+NGA_panel %<>% 
+  mutate(sq1.x = case_when(wave == 2 & is.na(sq1.x) ~ sq1.y,
+                           wave != 2 ~ sq1.x
+                           ))
+NGA_panel %<>% 
+  mutate(sq3.x = case_when(wave == 2 & is.na(sq3.x) ~ sq3.y,
+                           wave != 2 ~ sq3.x
+                           ))
+NGA_panel %<>% 
+  mutate(sq4.x = case_when(wave == 2 & is.na(sq4.x) ~ sq4.y,
+                           wave != 2 ~ sq4.x
+  ))
+NGA_panel %<>% 
+  mutate(sq5.x = case_when(wave == 2 & is.na(sq5.x) ~ sq5.y,
+                           wave != 2 ~ sq5.x
+  ))
+NGA_panel %<>% 
+  mutate(sq6.x = case_when(wave == 2 & is.na(sq6.x) ~ sq6.y,
+                           wave != 2 ~ sq6.x
+  ))
+NGA_panel %<>% 
+  mutate(sq7.x = case_when(wave == 2 & is.na(sq7.x) ~ sq7.y,
+                           wave != 2 ~ sq7.x
+  ))
+NGA_panel %<>% 
+  mutate(srtm_nga.x = case_when(wave == 2 & is.na(srtm_nga.x) ~ srtm_nga.y,
+                           wave != 2 ~ srtm_nga.x
+  ))
+NGA_panel %<>% 
+  mutate(srtm_nga_5_15.x = case_when(wave == 2 & is.na(srtm_nga_5_15.x) ~ srtm_nga_5_15.y,
+                                wave != 2 ~ srtm_nga_5_15.x
+  ))
+NGA_panel %<>% 
+  mutate(ssa_aez09.x = case_when(wave == 2 & is.na(ssa_aez09.x) ~ ssa_aez09.y,
+                                     wave != 2 ~ ssa_aez09.x
+  ))
+NGA_panel %<>% 
+  mutate(twi_nga.x = case_when(wave == 2 & is.na(twi_nga.x) ~ twi_nga.y,
+                                 wave != 2 ~ twi_nga.x
+  ))
+NGA_panel %<>% 
+  mutate(wetQ_avg.x = case_when(wave == 2 & is.na(wetQ_avg.x) ~ wetQ_avg.y,
+                               wave != 2 ~ wetQ_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(wetQ_avgstart.x = case_when(wave == 2 & is.na(wetQ_avgstart.x) ~ wetQ_avgstart.y,
+                                wave != 2 ~ wetQ_avgstart.x
+  ))
+
+NGA_panel <- NGA_panel[,1:146]
+NGA_panel %<>% 
+  rename(dist_Y1 = dist_Y1.x,            
+         LAT_DD_MOD = LAT_DD_MOD.x,
+         LON_DD_MOD = LON_DD_MOD.x,
+         dist_road = dist_road.x,
+         dist_popcenter = dist_popcenter.x,
+         dist_market = dist_market.x,
+         dist_borderpost = dist_borderpost.x,
+         dist_admctr = dist_admctr.x,
+         af_bio_1 = af_bio_1.x,
+         af_bio_8 = af_bio_8.x,
+         af_bio_12 = af_bio_12.x,
+         af_bio_13 = af_bio_13.x,
+         af_bio_16 = af_bio_16.x,
+         fsrad3_agpct = fsrad3_agpct.x,
+         fsrad3_lcmaj = fsrad3_lcmaj.x,
+         ssa_aez09 = ssa_aez09.x,
+         afmnslp_pct = afmnslp_pct.x,
+         srtm_nga = srtm_nga.x,
+         twi_nga = twi_nga.x,
+         srtm_nga_5_15 = srtm_nga_5_15.x,
+         sq1 = sq1.x,
+         sq2 = sq2.x,
+         sq3 = sq3.x,
+         sq4 = sq4.x,
+         sq5 = sq5.x,
+         sq6 = sq6.x,
+         sq7 = sq7.x,
+         anntot_avg = anntot_avg.x,
+         wetQ_avg = wetQ_avg.x,
+         wetQ_avgstart = wetQ_avgstart.x,
+         h_tot = h_tot.x,
+         h_wetQ = h_wetQ.x,
+         h_wetQstart = h_wetQstart.x,
+         eviarea_avg = eviarea_avg.x,
+         evimax_avg = evimax_avg.x,
+         grn_avg = grn_avg.x,
+         sen_avg = sen_avg.x,
+         h_eviarea = h_eviarea.x,
+         h_evimax = h_evimax.x,
+         h_grn = h_grn.x,
+         h_sen = h_sen.x
+         )    
 
 NGA_panel %<>% full_join(geo_3, by = c("wave", "zone", "state", "lga", "sector", "ea", "hhid"))
 NGA_panel %<>% 
@@ -364,12 +599,207 @@ NGA_panel %<>%
   mutate(LAT_DD_MOD.x = case_when(wave == 3 & is.na(LAT_DD_MOD.x) ~ LAT_DD_MOD.y,
                                   wave != 3 ~ LAT_DD_MOD.x
   ))
-NGA_panel <- NGA_panel[,1:107]
 NGA_panel %<>% 
-  rename(
-    LAT_DD_MOD = LAT_DD_MOD.x,
-    LON_DD_MOD = LON_DD_MOD.x
-  )
+  mutate(af_bio_1.x = case_when(wave == 3 & is.na(af_bio_1.x) ~ af_bio_1.y,
+                                wave != 3 ~ af_bio_1.x
+  ))
+NGA_panel %<>% 
+  mutate(af_bio_12.x = case_when(wave == 3 & is.na(af_bio_12.x) ~ af_bio_12.y,
+                                 wave != 3 ~ af_bio_12.x
+  ))
+NGA_panel %<>% 
+  mutate(af_bio_13.x = case_when(wave == 3 & is.na(af_bio_13.x) ~ af_bio_13.y,
+                                 wave != 3 ~ af_bio_13.x
+  ))
+NGA_panel %<>% 
+  mutate(af_bio_16.x = case_when(wave == 3 & is.na(af_bio_16.x) ~ af_bio_16.y,
+                                 wave != 3 ~ af_bio_16.x
+  ))
+NGA_panel %<>% 
+  mutate(af_bio_8.x = case_when(wave == 3 & is.na(af_bio_8.x) ~ af_bio_8.y,
+                                wave != 3 ~ af_bio_8.x
+  ))
+NGA_panel %<>% 
+  mutate(afmnslp_pct.x = case_when(wave == 3 & is.na(afmnslp_pct.x) ~ afmnslp_pct.y,
+                                   wave != 3 ~ afmnslp_pct.x
+  ))
+NGA_panel %<>% 
+  mutate(anntot_avg.x = case_when(wave == 3 & is.na(anntot_avg.x) ~ anntot_avg.y,
+                                  wave != 3 ~ anntot_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(dist_admctr.x = case_when(wave == 3 & is.na(dist_admctr.x) ~ dist_admctr.y,
+                                   wave != 3 ~ dist_admctr.x
+  ))
+NGA_panel %<>% 
+  mutate(dist_borderpost.x = case_when(wave == 3 & is.na(dist_borderpost.x) ~ dist_borderpost.y,
+                                       wave != 3 ~ dist_borderpost.x
+  ))
+NGA_panel %<>% 
+  mutate(dist_market.x = case_when(wave == 3 & is.na(dist_market.x) ~ dist_market.y,
+                                   wave != 3 ~ dist_market.x
+  ))
+NGA_panel %<>% 
+  mutate(dist_popcenter.x = case_when(wave == 3 & is.na(dist_popcenter.x) ~ dist_popcenter.y,
+                                      wave != 3 ~ dist_popcenter.x
+  ))
+NGA_panel %<>% 
+  mutate(dist_road.x = case_when(wave == 3 & is.na(dist_road.x) ~ dist_road.y,
+                                 wave != 3 ~ dist_road.x
+  ))
+NGA_panel$dist_Y1.x <-as.integer(NGA_panel$dist_Y1.x)
+NGA_panel %<>% 
+  mutate(dist_Y1.x = case_when(wave == 3 & is.na(dist_Y1.x) ~ dist_Y1.y,
+                               wave != 3 ~ dist_Y1.x
+  ))
+NGA_panel %<>% 
+  mutate(eviarea_avg.x = case_when(wave == 3 & is.na(eviarea_avg.x) ~ eviarea_avg.y,
+                                   wave != 3 ~ eviarea_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(evimax_avg.x = case_when(wave == 3 & is.na(evimax_avg.x) ~ evimax_avg.y,
+                                  wave != 3 ~ evimax_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(fsrad3_agpct.x = case_when(wave == 3 & is.na(fsrad3_agpct.x) ~ fsrad3_agpct.y,
+                                    wave != 3 ~ fsrad3_agpct.x
+  ))
+NGA_panel %<>% 
+  mutate(fsrad3_lcmaj.x = case_when(wave == 3 & is.na(fsrad3_lcmaj.x) ~ fsrad3_lcmaj.y,
+                                    wave != 3 ~ fsrad3_lcmaj.x
+  ))
+NGA_panel %<>% 
+  mutate(grn_avg.x = case_when(wave == 3 & is.na(grn_avg.x) ~ grn_avg.y,
+                               wave != 3 ~ grn_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(h_eviarea.x = case_when(wave == 3 & is.na(h_eviarea.x) ~ h_eviarea.y,
+                                 wave != 3 ~ h_eviarea.x
+  ))
+NGA_panel %<>% 
+  mutate(h_evimax.x = case_when(wave == 3 & is.na(h_evimax.x) ~ h_evimax.y,
+                                wave != 3 ~ h_evimax.x
+  ))
+NGA_panel %<>% 
+  mutate(h_grn.x = case_when(wave == 3 & is.na(h_grn.x) ~ h_grn.y,
+                             wave != 3 ~ h_grn.x
+  ))
+NGA_panel %<>% 
+  mutate(h_sen.x = case_when(wave == 3 & is.na(h_sen.x) ~ h_sen.y,
+                             wave != 3 ~ h_sen.x
+  ))
+NGA_panel %<>% 
+  mutate(h_tot.x = case_when(wave == 3 & is.na(h_tot.x) ~ h_tot.y,
+                             wave != 3 ~ h_tot.x
+  ))
+NGA_panel %<>% 
+  mutate(h_wetQ.x = case_when(wave == 3 & is.na(h_wetQ.x) ~ h_wetQ.y,
+                              wave != 3 ~ h_wetQ.x
+  ))
+NGA_panel %<>% 
+  mutate(h_wetQstart.x = case_when(wave == 3 & is.na(h_wetQstart.x) ~ h_wetQstart.y,
+                                   wave != 3 ~ h_wetQstart.x
+  ))
+NGA_panel %<>% 
+  mutate(sen_avg.x = case_when(wave == 3 & is.na(sen_avg.x) ~ sen_avg.y,
+                               wave != 3 ~ sen_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(sq2.x = case_when(wave == 3 & is.na(sq2.x) ~ sq2.y,
+                           wave != 3 ~ sq2.x
+  ))
+NGA_panel %<>% 
+  mutate(sq1.x = case_when(wave == 3 & is.na(sq1.x) ~ sq1.y,
+                           wave != 3 ~ sq1.x
+  ))
+NGA_panel %<>% 
+  mutate(sq3.x = case_when(wave == 3 & is.na(sq3.x) ~ sq3.y,
+                           wave != 3 ~ sq3.x
+  ))
+NGA_panel %<>% 
+  mutate(sq4.x = case_when(wave == 3 & is.na(sq4.x) ~ sq4.y,
+                           wave != 3 ~ sq4.x
+  ))
+NGA_panel %<>% 
+  mutate(sq5.x = case_when(wave == 3 & is.na(sq5.x) ~ sq5.y,
+                           wave != 3 ~ sq5.x
+  ))
+NGA_panel %<>% 
+  mutate(sq6.x = case_when(wave == 3 & is.na(sq6.x) ~ sq6.y,
+                           wave != 3 ~ sq6.x
+  ))
+NGA_panel %<>% 
+  mutate(sq7.x = case_when(wave == 3 & is.na(sq7.x) ~ sq7.y,
+                           wave != 3 ~ sq7.x
+  ))
+NGA_panel %<>% 
+  mutate(srtm_nga.x = case_when(wave == 3 & is.na(srtm_nga.x) ~ srtm_nga.y,
+                                wave != 3 ~ srtm_nga.x
+  ))
+NGA_panel %<>% 
+  mutate(srtm_nga_5_15.x = case_when(wave == 3 & is.na(srtm_nga_5_15.x) ~ srtm_nga_5_15.y,
+                                     wave != 3 ~ srtm_nga_5_15.x
+  ))
+NGA_panel %<>% 
+  mutate(ssa_aez09.x = case_when(wave == 3 & is.na(ssa_aez09.x) ~ ssa_aez09.y,
+                                 wave != 3 ~ ssa_aez09.x
+  ))
+NGA_panel %<>% 
+  mutate(twi_nga.x = case_when(wave == 3 & is.na(twi_nga.x) ~ twi_nga.y,
+                               wave != 3 ~ twi_nga.x
+  ))
+NGA_panel %<>% 
+  mutate(wetQ_avg.x = case_when(wave == 3 & is.na(wetQ_avg.x) ~ wetQ_avg.y,
+                                wave != 3 ~ wetQ_avg.x
+  ))
+NGA_panel %<>% 
+  mutate(wetQ_avgstart.x = case_when(wave == 3 & is.na(wetQ_avgstart.x) ~ wetQ_avgstart.y,
+                                     wave != 3 ~ wetQ_avgstart.x
+  ))
+NGA_panel <- NGA_panel[,1:146]
+NGA_panel %<>% 
+  rename(dist_Y1 = dist_Y1.x,            
+         LAT_DD_MOD = LAT_DD_MOD.x,
+         LON_DD_MOD = LON_DD_MOD.x,
+         dist_road = dist_road.x,
+         dist_popcenter = dist_popcenter.x,
+         dist_market = dist_market.x,
+         dist_borderpost = dist_borderpost.x,
+         dist_admctr = dist_admctr.x,
+         af_bio_1 = af_bio_1.x,
+         af_bio_8 = af_bio_8.x,
+         af_bio_12 = af_bio_12.x,
+         af_bio_13 = af_bio_13.x,
+         af_bio_16 = af_bio_16.x,
+         fsrad3_agpct = fsrad3_agpct.x,
+         fsrad3_lcmaj = fsrad3_lcmaj.x,
+         ssa_aez09 = ssa_aez09.x,
+         afmnslp_pct = afmnslp_pct.x,
+         srtm_nga = srtm_nga.x,
+         twi_nga = twi_nga.x,
+         srtm_nga_5_15 = srtm_nga_5_15.x,
+         sq1 = sq1.x,
+         sq2 = sq2.x,
+         sq3 = sq3.x,
+         sq4 = sq4.x,
+         sq5 = sq5.x,
+         sq6 = sq6.x,
+         sq7 = sq7.x,
+         anntot_avg = anntot_avg.x,
+         wetQ_avg = wetQ_avg.x,
+         wetQ_avgstart = wetQ_avgstart.x,
+         h_tot = h_tot.x,
+         h_wetQ = h_wetQ.x,
+         h_wetQstart = h_wetQstart.x,
+         eviarea_avg = eviarea_avg.x,
+         evimax_avg = evimax_avg.x,
+         grn_avg = grn_avg.x,
+         sen_avg = sen_avg.x,
+         h_eviarea = h_eviarea.x,
+         h_evimax = h_evimax.x,
+         h_grn = h_grn.x,
+         h_sen = h_sen.x
+  )    
 
 NGA_panel <- NGA_panel[!is.na(NGA_panel$t), ] # delete added obs
 
@@ -378,5 +808,5 @@ table(NGA_panel$t, is.na(NGA_panel$LAT_DD_MOD)) # missing values are not systema
 NGA_panel <- NGA_panel[! is.na(NGA_panel$LAT_DD_MOD),]
 NGA_panel <- NGA_panel[! is.na(NGA_panel$LON_DD_MOD),]
 
-save(NGA_panel, file = "outputs/NGA_panel.Rda") #save and your done!
+save(NGA_panel, file = "outputs/NGA_panel.Rda") #save and you're done!
 rm(list = ls(all=T))
