@@ -19,7 +19,7 @@ pre <- raster("inputs/climate_data/cru_data/cru_ts4.04.1901.2019.pre.dat.nc")
 
 # Load Nigeria shapefile, transform to raster CRS, and simplify for performance
 # Source: https://gadm.org/download_country_v3.html
-poly <- st_read("inputs/shapes/nigeria-lgas/new_lga_nigeria_2003.shp") %>% 
+poly <- readRDS("inputs/shapes/gadm36_NGA_1_sf.rds") %>% 
   st_transform(proj4string(tmx)) #%>%
 st_simplify(0.01, preserveTopology = TRUE)
 
