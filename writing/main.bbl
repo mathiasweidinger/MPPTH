@@ -1,5 +1,29 @@
 \begin{thebibliography}{}
 
+\bibitem[Alkire and Foster, 2011]{alkire2011}
+Alkire, S. and Foster, J. (2011).
+\newblock Counting and multidimensional poverty measurement.
+\newblock {\em Journal of Public Economics}, 95(7):476--487.
+
+\bibitem[Alkire and Jahan, 2018]{alkire2018}
+Alkire, S. and Jahan, S. (2018).
+\newblock The {{New Global MPI}}: {{Aligning}} with the {{Sustainable
+  Development Goals}}.
+\newblock {{OPHI Working Paper}} 121, {Oxford Poverty and Human Development
+  Initiative}, {Oxford}.
+
+\bibitem[Alkire et~al., 2020]{alkire2020}
+Alkire, S., Kanagaratnam, U., and Suppa, N. (2020).
+\newblock The {{Global Multidimensional Poverty Index}} ({{MPI}}) 2020.
+\newblock {{MPI Methodological Note}}~49, {OPHI}.
+
+\bibitem[Allen et~al., 1998]{allen1998}
+Allen, R.~G., Pereira, L.~S., Raes, D., and Smith, M. (1998).
+\newblock Crop evapotranspiration - {{Guidelines}} for computing crop water
+  requirements.
+\newblock Technical Report~56, {Food and Agricultural Organization of the
+  United Nations}, {Rome, Italy}.
+
 \bibitem[Auffhammer, 2014]{Auffhammer2014b}
 Auffhammer, M. (2014).
 \newblock Economic {{Impacts}} of {{Climate Change}} on {{Agriculture}}.
@@ -59,13 +83,6 @@ Baylis, P. (2020).
 \newblock Temperature and temperament: {{Evidence}} from {{Twitter}}.
 \newblock {\em Journal of Public Economics}, 184:104161.
 
-\bibitem[Beck et~al., 2018]{Beck2018}
-Beck, H.~E., Zimmermann, N.~E., McVicar, T.~R., Vergopolan, N., Berg, A., and
-  Wood, E.~F. (2018).
-\newblock Present and future k\"oppen-geiger climate classification maps at
-  1-km resolution.
-\newblock {\em Scientific Data}, 5(1):1--12.
-
 \bibitem[Becker, 1964]{Becker1964}
 Becker, G. (1964).
 \newblock {\em Human {{Capital}}: {{A Theoretical}} and {{Empirical Analysis}},
@@ -98,6 +115,11 @@ Boeckx, P., Bauters, M., and Dewettinck, K. (2020).
 \newblock Poverty and climate change challenges for sustainable intensification
   of cocoa systems.
 \newblock {\em Current Opinion in Environmental Sustainability}, 47:106--111.
+
+\bibitem[Bourguignon and Chakravarty, 2003]{bourguignon2003}
+Bourguignon, F. and Chakravarty, S.~R. (2003).
+\newblock The {{Measurement}} of {{Multidimensional Poverty}}.
+\newblock {\em The Journal of Economic Inequality}, 1(1):25--49.
 
 \bibitem[Boutin, 2014]{Boutin2014}
 Boutin, D. (2014).
@@ -256,6 +278,14 @@ Edmonds, E.~V. and Shrestha, M. (2014).
 \newblock You get what you pay for: {{Schooling}} incentives and child labor.
 \newblock {\em Journal of Development Economics}, 111:196--211.
 
+\bibitem[Ekstr{\"o}m et~al., 2007]{ekstrom2007}
+Ekstr{\"o}m, M., Jones, P.~D., Fowler, H.~J., Lenderink, G., Buishand, T.~A.,
+  and Conway, D. (2007).
+\newblock Regional climate model data used within the {{SWURVE}} project ? 1:
+  Projected changes in seasonal patterns and estimation of {{PET}}.
+\newblock {\em Hydrology and Earth System Sciences Discussions},
+  11(3):1069--1083.
+
 \bibitem[Feng et~al., 2010]{Feng2010}
 Feng, S., Krueger, A.~B., and Oppenheimer, M. (2010).
 \newblock Linkages among climate change, crop yields and {{Mexico}}-{{US}}
@@ -269,16 +299,43 @@ Fisher, R.~A. (1925).
 \newblock {\em Philosophical Transactions of the Royal Society of London.
   Series B, Containing Papers of a Biological Character}, 213(402-410):89--142.
 
+\bibitem[Foster et~al., 1984]{foster1984}
+Foster, J., Greer, J., and Thorbecke, E. (1984).
+\newblock A {{Class}} of {{Decomposable Poverty Measures}}.
+\newblock {\em Econometrica}, 52(3):761--766.
+
 \bibitem[Hansen et~al., 2014]{Hansen2014}
 Hansen, G., Auffhammer, M., and Solow, A.~R. (2014).
 \newblock On the {{Attribution}} of a {{Single Event}} on {{Climate Change}}.
 \newblock {\em Jornal of Climate}, 27(22):8297--8301.
+
+\bibitem[Harris et~al., 2014]{harris2014}
+Harris, I., Jones, P.~D., Osborn, T.~J., and Lister, D.~H. (2014).
+\newblock Updated high-resolution grids of monthly climatic observations
+  \textendash{} the {{CRU TS3}}.10 {{Dataset}}.
+\newblock {\em International Journal of Climatology}, 34(3):623--642.
+
+\bibitem[Harris et~al., 2020]{harris2020}
+Harris, I., Osborn, T.~J., Jones, P., and Lister, D. (2020).
+\newblock Version 4 of the {{CRU TS}} monthly high-resolution gridded
+  multivariate climate dataset.
+\newblock {\em Scientific Data}, 7(1):109.
 
 \bibitem[Hertel and Lobell, 2014]{Hertel2014}
 Hertel, T.~W. and Lobell, D.~B. (2014).
 \newblock Agricultural adaptation to climate change in rich and poor countries:
   {{Current}} modeling practice and potential for empirical contributions.
 \newblock {\em Energy Economics}, 46:562--575.
+
+\bibitem[Hijmans, 2020]{hijmans2020}
+Hijmans, R.~J. (2020).
+\newblock Package 'raster': {{Geographic Data Analysis}} and {{Modeling}}.
+\newblock https://cran.r-project.org/web/packages/raster.
+
+\bibitem[Hijmans, 2021]{hijmans2021}
+Hijmans, R.~J. (2021).
+\newblock Package 'terra': {{Spatial Data Analysis}}.
+\newblock https://cran.r-project.org/web/packages/terra.
 
 \bibitem[Hsiang, 2016]{Hsiang2016a}
 Hsiang, S.~M. (2016).
@@ -501,6 +558,11 @@ Posso, A., editor (2020).
   {{Practice}}, and {{Policy}}}.
 \newblock {Springer Singapore}, {Singapore}.
 
+\bibitem[Ravallion, 2011]{ravallion2011}
+Ravallion, M. (2011).
+\newblock On multidimensional indices of poverty.
+\newblock {\em The Journal of Economic Inequality}, 9(2):235--248.
+
 \bibitem[Ravallion, 2020]{Ravallion2020}
 Ravallion, M. (2020).
 \newblock On {{Measuring Global Poverty}}.
@@ -558,16 +620,16 @@ Schultz, T.~W. (1961).
 \newblock Investment in {{Human Capital}}.
 \newblock {\em American Economic Review}, 51(1):1--17.
 
-\bibitem[Sen, 1962]{Sen1962}
-Sen, A. (1962).
-\newblock An {{Aspect}} of {{Indian Agriculture}}.
-\newblock {\em The Economic Weekly}, (Annual Number 14):243--243.
-
 \bibitem[Sen, 1981]{Sen1981a}
 Sen, A. (1981).
 \newblock Market failure and control of labour power: Towards an explanation of
   'structure' and change in {{Indian}} agriculture. {{Part}} 1.
 \newblock {\em Cambridge Journal of Economics}, 5(3):201--228.
+
+\bibitem[Sen, 1962]{Sen1962}
+Sen, A.~K. (1962).
+\newblock An {{Aspect}} of {{Indian Agriculture}}.
+\newblock {\em The Economic Weekly}, (Annual Number 14):243--243.
 
 \bibitem[Sen, 1976]{Sen1976}
 Sen, A.~K. (1976).

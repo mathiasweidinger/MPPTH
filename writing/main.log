@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  13 MAR 2021 18:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  4 MAY 2021 17:59
 entering extended mode
 **c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
 (c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
@@ -623,12 +623,19 @@ File: tikzlibrarytopaths.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 ))) ("C:\Program Files\MiKTeX\tex/latex/eurosym\eurosym.sty"
 Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 \@eurobox=\box77
+) ("C:\Program Files\MiKTeX\tex/latex/graphics\rotating.sty"
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count334
+\rotFPtop=\skip87
+\rotFPbot=\skip88
+\rot@float@box=\box78
+\rot@mess@toks=\toks57
 ) ("C:\Program Files\MiKTeX\tex/latex/natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip87
-\bibsep=\skip88
+\bibhang=\skip89
+\bibsep=\skip90
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count334
+\c@NAT@ctr=\count335
 ) ("C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty"
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
  ("C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty"
@@ -659,8 +666,8 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen300
-\Hy@linkcounter=\count335
-\Hy@pagecounter=\count336
+\Hy@linkcounter=\count336
+\Hy@pagecounter=\count337
  ("C:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -670,7 +677,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) ("C:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count337
+\Hy@SavedSpaceFactor=\count338
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -678,7 +685,7 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count338
+\c@Hy@tempcnt=\count339
 LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen301
  ("C:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty"
@@ -686,7 +693,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  ("C:\Program Files\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty"
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count339
+\Fld@menulength=\count340
 \Field@Width=\dimen302
 \Fld@charsize=\dimen303
 Package hyperref Info: Hyper figures OFF on input line 6347.
@@ -702,9 +709,9 @@ LaTeX Info: Redefining \pageref on input line 6421.
 Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi package
 with kernel methods
 )
-\Hy@abspage=\count340
-\c@Item=\count341
-\c@Hfootnote=\count342
+\Hy@abspage=\count341
+\c@Item=\count342
+\c@Hfootnote=\count343
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  ("C:\Program Files\MiKTeX\tex/latex/hyperref\hpdftex.def"
@@ -713,8 +720,8 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery package
 with kernel methods
 )
-\Fld@listcount=\count343
-\c@bookmark@seq@number=\count344
+\Fld@listcount=\count344
+\c@bookmark@seq@number=\count345
  ("C:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty"
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  ("C:\Program Files\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty"
@@ -722,34 +729,38 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip89
+\Hy@SectionHShift=\skip91
 )
-Package hyperref Info: Option `final' set `true' on input line 39.
-Package hyperref Info: Option `colorlinks' set `true' on input line 46.
-\c@theorem=\count345
+Package hyperref Info: Option `final' set `true' on input line 40.
+Package hyperref Info: Option `colorlinks' set `true' on input line 47.
+\c@theorem=\count346
  ("C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def"
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count346
-\l__pdf_internal_box=\box78
-) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
+\l__kernel_color_stack_int=\count347
+\l__pdf_internal_box=\box79
+) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux
+
+LaTeX Warning: Label `fig:buffer' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
  ("C:\Program Files\MiKTeX\tex/latex/ragged2e\ragged2e.sty"
 Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
  ("C:\Program Files\MiKTeX\tex/latex/ms\everysel.sty"
@@ -757,41 +768,42 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
  ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 126.
 )
-\CenteringLeftskip=\skip90
-\RaggedLeftLeftskip=\skip91
-\RaggedRightLeftskip=\skip92
-\CenteringRightskip=\skip93
-\RaggedLeftRightskip=\skip94
-\RaggedRightRightskip=\skip95
-\CenteringParfillskip=\skip96
-\RaggedLeftParfillskip=\skip97
-\RaggedRightParfillskip=\skip98
-\JustifyingParfillskip=\skip99
-\CenteringParindent=\skip100
-\RaggedLeftParindent=\skip101
-\RaggedRightParindent=\skip102
-\JustifyingParindent=\skip103
+\CenteringLeftskip=\skip92
+\RaggedLeftLeftskip=\skip93
+\RaggedRightLeftskip=\skip94
+\CenteringRightskip=\skip95
+\RaggedLeftRightskip=\skip96
+\RaggedRightRightskip=\skip97
+\CenteringParfillskip=\skip98
+\RaggedLeftParfillskip=\skip99
+\RaggedRightParfillskip=\skip100
+\JustifyingParfillskip=\skip101
+\CenteringParindent=\skip102
+\RaggedLeftParindent=\skip103
+\RaggedRightParindent=\skip104
+\JustifyingParindent=\skip105
 ) ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count347
+\scratchcounter=\count348
 \scratchdimen=\dimen304
-\scratchbox=\box79
-\nofMPsegments=\count348
-\nofMParguments=\count349
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count350
+\scratchbox=\box80
+\nofMPsegments=\count349
+\nofMParguments=\count350
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count351
 \MPscratchDim=\dimen305
-\MPnumerator=\count351
-\makeMPintoPDFobject=\count352
-\everyMPtoPDFconversion=\toks58
+\MPnumerator=\count352
+\makeMPintoPDFobject=\count353
+\everyMPtoPDFconversion=\toks59
 ) ("C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 69.
+Package hyperref Info: Link coloring ON on input line 70.
  ("C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  ("C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty"
@@ -799,20 +811,20 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) ("C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count353
+\c@section@level=\count354
 )
-LaTeX Info: Redefining \ref on input line 69.
-LaTeX Info: Redefining \pageref on input line 69.
-LaTeX Info: Redefining \nameref on input line 69.
+LaTeX Info: Redefining \ref on input line 70.
+LaTeX Info: Redefining \pageref on input line 70.
+LaTeX Info: Redefining \nameref on input line 70.
  (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
  ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
  ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -820,73 +832,93 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {C:/Users/mathias/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2
 
 ] [3] [4] [5] [6] [7] [8] [9] [10]
-<fig_production_auffhammer.JPG, id=375, 714.2685pt x 393.8715pt>
+<fig_production_auffhammer.JPG, id=387, 714.2685pt x 393.8715pt>
 File: fig_production_auffhammer.JPG Graphic file (type jpg)
 <use fig_production_auffhammer.JPG>
-Package pdftex.def Info: fig_production_auffhammer.JPG  used on input line 151.
+Package pdftex.def Info: fig_production_auffhammer.JPG  used on input line 164.
 (pdftex.def)             Requested size: 357.13338pt x 196.93526pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11] [12 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_production_auffhammer.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+ [11] [12 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_production_auffhammer.JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
 []\OT1/cmr/bx/n/12 Climate
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 []\OT1/cmr/bx/n/12 Response
  []
 
 [13] [14] [15] [16] [17] [18] [19]
-<fig_skilltech.jpg, id=623, 538.11038pt x 564.9105pt>
+<fig_skilltech.jpg, id=635, 538.11038pt x 564.9105pt>
 File: fig_skilltech.jpg Graphic file (type jpg)
 <use fig_skilltech.jpg>
-Package pdftex.def Info: fig_skilltech.jpg  used on input line 282.
-(pdftex.def)             Requested size: 269.05452pt x 282.45456pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[20] [21 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_skilltech.jpg>]
-<fig_isoquants.jpg, id=647, 566.71725pt x 564.00713pt>
+Package pdftex.def Info: fig_skilltech.jpg  used on input line 297.
+(pdftex.def)             Requested size: 207.32315pt x 217.65068pt.
+<fig_isoquants.jpg, id=636, 566.71725pt x 564.00713pt>
 File: fig_isoquants.jpg Graphic file (type jpg)
 <use fig_isoquants.jpg>
-Package pdftex.def Info: fig_isoquants.jpg  used on input line 304.
-(pdftex.def)             Requested size: 283.35793pt x 282.00287pt.
- [22 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [23]
-<../outputs/climatezones.png, id=680, 878.38162pt x 473.06737pt>
-File: ../outputs/climatezones.png Graphic file (type png)
-<use ../outputs/climatezones.png>
-Package pdftex.def Info: ../outputs/climatezones.png  used on input line 351.
-(pdftex.def)             Requested size: 219.59486pt x 118.26654pt.
- [24] [25 <../outputs/climatezones.png>] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [26] [27] [28] [29]
-Underfull \hbox (badness 1668) in paragraph at lines 312--317
+Package pdftex.def Info: fig_isoquants.jpg  used on input line 302.
+(pdftex.def)             Requested size: 207.32315pt x 206.32991pt.
+ [20] [21 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_skilltech.jpg> <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [22] [23] [24]
+<../outputs/buffer.JPG, id=698, 1085.9772pt x 589.7232pt>
+File: ../outputs/buffer.JPG Graphic file (type jpg)
+<use ../outputs/buffer.JPG>
+Package pdftex.def Info: ../outputs/buffer.JPG  used on input line 377.
+(pdftex.def)             Requested size: 358.37358pt x 194.60925pt.
+ [25] [26 <../outputs/buffer.JPG>] [27] [28] [29] [30]
+Overfull \hbox (2.08197pt too wide) in paragraph at lines 426--426
+[]\OT1/cmr/bx/n/12 Code| 
+ []
+
+
+Overfull \hbox (2.41396pt too wide) in paragraph at lines 426--427
+[]\OT1/cmr/bx/n/12 CDD(km)| 
+ []
+
+<../outputs/timing.JPG, id=801, 1134.639pt x 655.85025pt>
+File: ../outputs/timing.JPG Graphic file (type jpg)
+<use ../outputs/timing.JPG>
+Package pdftex.def Info: ../outputs/timing.JPG  used on input line 452.
+(pdftex.def)             Requested size: 658.0911pt x 380.3934pt.
+
+Overfull \hbox (37.0911pt too wide) in paragraph at lines 452--453
+ [][] 
+ []
+
+[31] [32 <../outputs/timing.JPG>] [33] [34] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [35] [36] [37] [38] [39]
+Underfull \hbox (badness 3792) in paragraph at lines 336--339
+[]\OT1/cmr/m/n/10.95 Hijmans, R. J. (2021).  Pack-age 'terra': Spa-tial Data Anal-y-sis.  https://cran.r-
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 369--374
 []\OT1/cmr/m/n/10.95 ILO (2019).  ILO calls ac-tors to join the move-ment against child labour in Africa.
  []
 
-[30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 516--519
+[40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 578--581
 []\OT1/cmr/m/n/10.95 Ritchie, H. and Roser, M. (2017).  CO2 and Green-house Gas Emis-sions.
  []
 
-[33] [34]) [35] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
+[43] [44]) [45] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C3CD58A8A06BD68D3059FB623F474E52;747.
+(rerunfilecheck)             Checksum: FFD2FBC7C15B333D31DC079F6AB72333;976.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 25722 strings out of 479799
- 464835 string characters out of 2879592
- 836274 words of memory out of 3000000
- 41949 multiletter control sequences out of 15000+200000
- 551369 words of font info for 90 fonts, out of 3000000 for 9000
+ 25874 strings out of 479799
+ 467168 string characters out of 2879592
+ 838105 words of memory out of 3000000
+ 42063 multiletter control sequences out of 15000+200000
+ 551706 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,11n,115p,1902b,648s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1440.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (35 pages, 1139091 bytes).
+ 94i,11n,115p,1902b,672s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1440.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (45 pages, 1542561 bytes).
 PDF statistics:
- 863 PDF objects out of 1000 (max. 8388607)
- 199 named destinations out of 1000 (max. 500000)
- 137 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1001 PDF objects out of 1200 (max. 8388607)
+ 232 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

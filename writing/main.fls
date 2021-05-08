@@ -925,6 +925,16 @@ INPUT C:\Program Files\MiKTeX\tex\latex\eurosym\eurosym.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\eurosym\eurosym.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\eurosym\eurosym.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\eurosym\eurosym.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\graphics\rotating.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\natbib\natbib.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\natbib\natbib.sty
@@ -1284,6 +1294,7 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm0700.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Users\mathias\AppData\Local\MiKTeX\pdftex\config\pdftex.map
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -1305,7 +1316,6 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_production_auffhammer.JPG
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_production_auffhammer.JPG
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_production_auffhammer.JPG
@@ -1332,13 +1342,21 @@ INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_isoquan
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_isoquants.jpg
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_isoquants.jpg
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\fig_isoquants.jpg
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
-INPUT ..\outputs\climatezones.png
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\buffer.JPG
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
+INPUT ..\outputs\timing.JPG
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
@@ -1347,6 +1365,8 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.out
+INPUT C:\Users\mathias\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\mathias\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\mathias\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0700.pk
 INPUT C:\Users\mathias\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm0700.pk
 INPUT C:\Users\mathias\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
