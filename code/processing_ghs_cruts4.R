@@ -267,41 +267,41 @@ rm(frs) # no frost NGA
 
 # generate output
 cld <- generate(cld)
-names(cld) <-c("cld_01","cld_02","cld_03","cld_04",
-               "cld_05","cld_06","cld_07","cld_08",
-               "cld_09","cld_10","cld_11","cld_12")
+names(cld) <-c("cld01","cld02","cld03","cld04",
+               "cld05","cld06","cld07","cld08",
+               "cld09","cld10","cld11","cld12")
 dtr <- generate(dtr)
-names(dtr) <-c("dtr_01","dtr_02","dtr_03","dtr_04",
-               "dtr_05","dtr_06","dtr_07","dtr_08",
-               "dtr_09","dtr_10","dtr_11","dtr_12")
+names(dtr) <-c("dtr01","dtr02","dtr03","dtr04",
+               "dtr05","dtr06","dtr07","dtr08",
+               "dtr09","dtr10","dtr11","dtr12")
 pet <- generate(pet)
-names(pet) <-c("pet_01","pet_02","pet_03","pet_04",
-               "pet_05","pet_06","pet_07","pet_08",
-               "pet_09","pet_10","pet_11","pet_12")
+names(pet) <-c("pet01","pet02","pet03","pet04",
+               "pet05","pet06","pet07","pet08",
+               "pet09","pet10","pet11","pet12")
 pre <- generate(pre)
-names(pre) <-c("pre_01","pre_02","pre_03","pre_04",
-               "pre_05","pre_06","pre_07","pre_08",
-               "pre_09","pre_10","pre_11","pre_12")
+names(pre) <-c("pre01","pre02","pre03","pre04",
+               "pre05","pre06","pre07","pre08",
+               "pre09","pre10","pre11","pre12")
 tmn <- generate(tmn)
-names(tmn) <-c("tmn_01","tmn_02","tmn_03","tmn_04",
-               "tmn_05","tmn_06","tmn_07","tmn_08",
-               "tmn_09","tmn_10","tmn_11","tmn_12")
+names(tmn) <-c("tmn01","tmn02","tmn03","tmn04",
+               "tmn05","tmn06","tmn07","tmn08",
+               "tmn09","tmn10","tmn11","tmn12")
 tmp <- generate(tmp)
-names(tmp) <-c("tmp_01","tmp_02","tmp_03","tmp_04",
-               "tmp_05","tmp_06","tmp_07","tmp_08",
-               "tmp_09","tmp_10","tmp_11","tmp_12")
+names(tmp) <-c("tmp01","tmp02","tmp03","tmp04",
+               "tmp05","tmp06","tmp07","tmp08",
+               "tmp09","tmp10","tmp11","tmp12")
 tmx <- generate(tmx)
-names(tmx) <-c("tmx_01","tmx_02","tmx_03","tmx_04",
-               "tmx_05","tmx_06","tmx_07","tmx_08",
-               "tmx_09","tmx_10","tmx_11","tmx_12")
+names(tmx) <-c("tmx01","tmx02","tmx03","tmx04",
+               "tmx05","tmx06","tmx07","tmx08",
+               "tmx09","tmx10","tmx11","tmx12")
 vap <- generate(vap)
-names(vap) <-c("vap_01","vap_02","vap_03","vap_04",
-               "vap_05","vap_06","vap_07","vap_08",
-               "vap_09","vap_10","vap_11","vap_12")
+names(vap) <-c("vap01","vap02","vap03","vap04",
+               "vap05","vap06","vap07","vap08",
+               "vap09","vap10","vap11","vap12")
 wet <- generate(wet)
-names(wet) <-c("wet_01","wet_02","wet_03","wet_04",
-               "wet_05","wet_06","wet_07","wet_08",
-               "wet_09","wet_10","wet_11","wet_12")
+names(wet) <-c("wet01","wet02","wet03","wet04",
+               "wet05","wet06","wet07","wet08",
+               "wet09","wet10","wet11","wet12")
 
 # merge with GHS data
 NGA_panel %<>%
@@ -314,6 +314,37 @@ NGA_panel %<>%
   cbind(tmx) %>% 
   cbind(vap) %>% 
   cbind(wet)
+
+
+# create DV Child Labour
+
+NGA_panel %<>%
+  mutate(childchores = case_when(
+    !is.na(chores) & chores <= 1200 & age < 18 ~ (chores * 7)/60,
+    !is.na(chores) & chores > 1200 & age < 18 ~ NA_real_,
+    is.na(chores) & age < 18 ~ NA_real_,
+    age >= 18 ~ NA_real_
+  ))
+NGA_panel %<>%
+  mutate(childwork = case_when(
+    !is.na(pri_hrs_7d) & !is.na(sec_hrs) & pri_hrs_7d + sec_hrs <= 140 & age < 18 ~ as.numeric(pri_hrs_7d + sec_hrs),
+    !is.na(pri_hrs_7d) & !is.na(sec_hrs) & pri_hrs_7d + sec_hrs > 140 & age < 18 ~ 140,
+    !is.na(pri_hrs_7d) & is.na(sec_hrs) & pri_hrs_7d <= 140 & age < 18 ~ as.numeric(pri_hrs_7d),
+    !is.na(pri_hrs_7d) & is.na(sec_hrs) & pri_hrs_7d > 140 & age < 18 ~ 140,
+    is.na(pri_hrs_7d) & !is.na(sec_hrs) & sec_hrs <= 140 & age < 18 ~ as.numeric(sec_hrs),
+    is.na(pri_hrs_7d) & !is.na(sec_hrs) & sec_hrs > 140 & age <18 ~ 140,
+    !is.na(pri_hrs_7d) & !is.na(pri_hrs_7d) ~ NA_real_,
+    age >= 18 ~ NA_real_
+  ))
+NGA_
+
+NGA_panel %<>%
+  mutate(childworkchores = case_when(
+    !is.na(childwork) & !is.na(childchores) ~ as.numeric(childwork+childchores),
+    !is.na(childwork) & is.na(childchores) ~ childwork,
+    is.na(childwork) & !is.na(childchores) ~ childchores,
+    is.na(childwork) & is.na(childchores) ~ NA_real_
+  ))
 
 save(NGA_panel, file = "outputs/panel_unif.RData")
 rm(list = ls(all.names = TRUE)) #will clear all objects includes hidden objects.

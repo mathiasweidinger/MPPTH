@@ -140,6 +140,11 @@ Burke, M. and Tanutama, V. (2019).
 \newblock {{NBER Working Paper}} 25779, {National Bureau of Economic Research},
   {Cambridge, MA}.
 
+\bibitem[Carleton and Hsiang, 2016]{Carleton2016}
+Carleton, T.~A. and Hsiang, S.~M. (2016).
+\newblock Social and economic impacts of climate.
+\newblock {\em Sience}, 353(6304):1112--1127.
+
 \bibitem[Cattaneo and Peri, 2016]{Cattaneo2016}
 Cattaneo, C. and Peri, G. (2016).
 \newblock The migration response to increasing temperatures.
@@ -304,6 +309,12 @@ Foster, J., Greer, J., and Thorbecke, E. (1984).
 \newblock A {{Class}} of {{Decomposable Poverty Measures}}.
 \newblock {\em Econometrica}, 52(3):761--766.
 
+\bibitem[Greene, 2018]{greene2018}
+Greene, W.~H. (2018).
+\newblock {\em Econometric Analysis}.
+\newblock {Pearson Education Limited}, {Harlow}, global edition ; 8th edition
+  edition.
+
 \bibitem[Hansen et~al., 2014]{Hansen2014}
 Hansen, G., Auffhammer, M., and Solow, A.~R. (2014).
 \newblock On the {{Attribution}} of a {{Single Event}} on {{Climate Change}}.
@@ -320,6 +331,18 @@ Harris, I., Osborn, T.~J., Jones, P., and Lister, D. (2020).
 \newblock Version 4 of the {{CRU TS}} monthly high-resolution gridded
   multivariate climate dataset.
 \newblock {\em Scientific Data}, 7(1):109.
+
+\bibitem[Hastie and Tibshirani, 1987]{hastie1987}
+Hastie, T. and Tibshirani, R. (1987).
+\newblock Generalized {{Additive Models}}: {{Some Applications}}.
+\newblock {\em Journal of the American Statistical Association},
+  82(398):371--386.
+
+\bibitem[Hastie et~al., 2009]{hastie2009a}
+Hastie, T., Tibshirani, R., and Friedman, J. (2009).
+\newblock {\em The {{Elements}} of {{Statistical Learning}}}.
+\newblock Springer {{Series}} in {{Statistics}}. {Springer New York}, {New
+  York, NY}.
 
 \bibitem[Hertel and Lobell, 2014]{Hertel2014}
 Hertel, T.~W. and Lobell, D.~B. (2014).
@@ -346,6 +369,12 @@ Hsiang, S.~M. (2016).
 Hsiang, S.~M., Burke, M., and Miguel, E. (2015).
 \newblock Climate and {{Conflict}}.
 \newblock {\em Annual Review of Economics}, 7(1):577--617.
+
+\bibitem[Hsiang and Kopp, 2018]{Hsiang2018}
+Hsiang, S.~M. and Kopp, R.~E. (2018).
+\newblock An {{Economist}}'s {{Guide}} to {{Climate Change Science}}.
+\newblock {{NBER Working Paper}} 25189, {National Bureau of Economic Research},
+  {Cambridge, MA}.
 
 \bibitem[Hsiang et~al., 2011]{Hsiang2011}
 Hsiang, S.~M., Meng, K.~C., and Cane, M.~A. (2011).
@@ -561,12 +590,12 @@ Posso, A., editor (2020).
 \bibitem[Ravallion, 2011]{ravallion2011}
 Ravallion, M. (2011).
 \newblock On multidimensional indices of poverty.
-\newblock {\em The Journal of Economic Inequality}, 9(2):235--248.
+\newblock {\em J Econ Inequal}, 9(2):235--248.
 
 \bibitem[Ravallion, 2020]{Ravallion2020}
 Ravallion, M. (2020).
 \newblock On {{Measuring Global Poverty}}.
-\newblock {\em Annual Review of Economics}, 12(1):167--188.
+\newblock {\em Annu. Rev. Econ.}, 12(1):167--188.
 
 \bibitem[Ravallion and Chen, 2009]{Ravallion2009}
 Ravallion, M. and Chen, S. (2009).

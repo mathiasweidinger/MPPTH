@@ -6,45 +6,45 @@ The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: References.bib
 Warning--there's a number but no volume in Sen1962
-You've used 115 entries,
+You've used 120 entries,
             1935 wiz_defined-function locations,
-            1238 strings with 24553 characters,
-and the built_in function-call counts, 43719 in all, are:
-= -- 4362
-> -- 1753
-< -- 96
-+ -- 610
-- -- 578
-* -- 3783
-:= -- 7798
-add.period$ -- 346
-call.type$ -- 115
-change.case$ -- 865
-chr.to.int$ -- 115
-cite$ -- 116
-duplicate$ -- 1548
-empty$ -- 2989
-format.name$ -- 765
-if$ -- 8348
+            1274 strings with 25348 characters,
+and the built_in function-call counts, 45510 in all, are:
+= -- 4543
+> -- 1817
+< -- 101
++ -- 634
+- -- 598
+* -- 3933
+:= -- 8116
+add.period$ -- 362
+call.type$ -- 120
+change.case$ -- 899
+chr.to.int$ -- 120
+cite$ -- 121
+duplicate$ -- 1616
+empty$ -- 3115
+format.name$ -- 796
+if$ -- 8696
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 91
-newline$ -- 577
-num.names$ -- 352
-pop$ -- 594
+missing$ -- 97
+newline$ -- 602
+num.names$ -- 367
+pop$ -- 620
 preamble$ -- 1
-purify$ -- 862
+purify$ -- 897
 quote$ -- 0
-skip$ -- 1175
+skip$ -- 1225
 stack$ -- 0
-substring$ -- 3192
-swap$ -- 106
-text.length$ -- 14
+substring$ -- 3312
+swap$ -- 111
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 674
+type$ -- 700
 warning$ -- 1
-while$ -- 380
+while$ -- 394
 width$ -- 0
-write$ -- 1512
+write$ -- 1580
 (There was 1 warning)

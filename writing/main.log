@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  4 MAY 2021 17:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.14)  13 MAY 2021 11:04
 entering extended mode
 **c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
 (c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/main.tex
@@ -740,7 +740,7 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box79
 ) (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux
 
-LaTeX Warning: Label `fig:buffer' multiply defined.
+LaTeX Warning: Label `tab:cruvars' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -832,7 +832,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {C:/Users/mathias/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2
 
 ] [3] [4] [5] [6] [7] [8] [9] [10]
-<fig_production_auffhammer.JPG, id=387, 714.2685pt x 393.8715pt>
+<fig_production_auffhammer.JPG, id=399, 714.2685pt x 393.8715pt>
 File: fig_production_auffhammer.JPG Graphic file (type jpg)
 <use fig_production_auffhammer.JPG>
 Package pdftex.def Info: fig_production_auffhammer.JPG  used on input line 164.
@@ -848,77 +848,431 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--195
  []
 
 [13] [14] [15] [16] [17] [18] [19]
-<fig_skilltech.jpg, id=635, 538.11038pt x 564.9105pt>
+<fig_skilltech.jpg, id=647, 538.11038pt x 564.9105pt>
 File: fig_skilltech.jpg Graphic file (type jpg)
 <use fig_skilltech.jpg>
 Package pdftex.def Info: fig_skilltech.jpg  used on input line 297.
 (pdftex.def)             Requested size: 207.32315pt x 217.65068pt.
-<fig_isoquants.jpg, id=636, 566.71725pt x 564.00713pt>
+<fig_isoquants.jpg, id=648, 566.71725pt x 564.00713pt>
 File: fig_isoquants.jpg Graphic file (type jpg)
 <use fig_isoquants.jpg>
 Package pdftex.def Info: fig_isoquants.jpg  used on input line 302.
 (pdftex.def)             Requested size: 207.32315pt x 206.32991pt.
- [20] [21 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_skilltech.jpg> <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [22] [23] [24]
-<../outputs/buffer.JPG, id=698, 1085.9772pt x 589.7232pt>
-File: ../outputs/buffer.JPG Graphic file (type jpg)
-<use ../outputs/buffer.JPG>
-Package pdftex.def Info: ../outputs/buffer.JPG  used on input line 377.
-(pdftex.def)             Requested size: 358.37358pt x 194.60925pt.
- [25] [26 <../outputs/buffer.JPG>] [27] [28] [29] [30]
-Overfull \hbox (2.08197pt too wide) in paragraph at lines 426--426
+ [20] [21 <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_skilltech.jpg> <c:/Users/mathias/ROOT/EDU/UM/MA_MPP/MTH4911/MPP_Thesis/writing/fig_isoquants.jpg>] [22] [23] [24] [25] [26] [27] [28] [29]
+Overfull \hbox (2.08197pt too wide) in paragraph at lines 416--416
 []\OT1/cmr/bx/n/12 Code| 
  []
 
 
-Overfull \hbox (2.41396pt too wide) in paragraph at lines 426--427
+Overfull \hbox (2.41396pt too wide) in paragraph at lines 416--417
 []\OT1/cmr/bx/n/12 CDD(km)| 
  []
 
-<../outputs/timing.JPG, id=801, 1134.639pt x 655.85025pt>
-File: ../outputs/timing.JPG Graphic file (type jpg)
-<use ../outputs/timing.JPG>
-Package pdftex.def Info: ../outputs/timing.JPG  used on input line 452.
-(pdftex.def)             Requested size: 658.0911pt x 380.3934pt.
+<../outputs/buffer.JPG, id=795, 1085.9772pt x 589.7232pt>
+File: ../outputs/buffer.JPG Graphic file (type jpg)
+<use ../outputs/buffer.JPG>
+Package pdftex.def Info: ../outputs/buffer.JPG  used on input line 440.
+(pdftex.def)             Requested size: 358.37358pt x 194.60925pt.
+[30] [31 <../outputs/buffer.JPG>]
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
 
-Overfull \hbox (37.0911pt too wide) in paragraph at lines 452--453
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2009| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2009| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--459
+[]\OT1/cmr/m/n/12 2009| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 459--460
+[]\OT1/cmr/m/n/12 2009| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2011| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--460
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 460--461
+[]\OT1/cmr/m/n/12 2010| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2011| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2011| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--461
+[]\OT1/cmr/m/n/12 2011| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 461--462
+[]\OT1/cmr/m/n/12 2011| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2013| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--462
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 462--463
+[]\OT1/cmr/m/n/12 2012| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2014| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2014| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--463
+[]\OT1/cmr/m/n/12 2014| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 463--464
+[]\OT1/cmr/m/n/12 2014| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2016| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--464
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (3.58292pt too wide) in paragraph at lines 464--465
+[]\OT1/cmr/m/n/12 2015| 
+ []
+
+
+Overfull \hbox (14.56769pt too wide) in paragraph at lines 455--468
  [][] 
  []
 
-[31] [32 <../outputs/timing.JPG>] [33] [34] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [35] [36] [37] [38] [39]
-Underfull \hbox (badness 3792) in paragraph at lines 336--339
+[32] [33] [34] [35] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl [36] [37] [38] [39] [40]
+Underfull \hbox (badness 3792) in paragraph at lines 359--362
 []\OT1/cmr/m/n/10.95 Hijmans, R. J. (2021).  Pack-age 'terra': Spa-tial Data Anal-y-sis.  https://cran.r-
  []
 
-
-Underfull \hbox (badness 1668) in paragraph at lines 369--374
+[41]
+Underfull \hbox (badness 1668) in paragraph at lines 398--403
 []\OT1/cmr/m/n/10.95 ILO (2019).  ILO calls ac-tors to join the move-ment against child labour in Africa.
  []
 
-[40] [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 578--581
+[42] [43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 607--610
 []\OT1/cmr/m/n/10.95 Ritchie, H. and Roser, M. (2017).  CO2 and Green-house Gas Emis-sions.
  []
 
-[43] [44]) [45] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
+[45]) [46] (c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FFD2FBC7C15B333D31DC079F6AB72333;976.
+(rerunfilecheck)             Checksum: 532F3F269D92C495A70E860787FB5EDD;1145.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25874 strings out of 479799
- 467168 string characters out of 2879592
- 838105 words of memory out of 3000000
- 42063 multiletter control sequences out of 15000+200000
+ 25900 strings out of 479799
+ 467517 string characters out of 2879592
+ 838251 words of memory out of 3000000
+ 42074 multiletter control sequences out of 15000+200000
  551706 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,11n,115p,1902b,672s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 94i,11n,115p,1902b,666s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0700.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\mathias\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1440.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (45 pages, 1542561 bytes).
+Output written on c:/Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.pdf (46 pages, 1196288 bytes).
 PDF statistics:
- 1001 PDF objects out of 1200 (max. 8388607)
- 232 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1052 PDF objects out of 1200 (max. 8388607)
+ 248 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
