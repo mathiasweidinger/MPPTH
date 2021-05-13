@@ -480,9 +480,9 @@ For robustness, I estimate three variants of this model. The first is a linear m
     H_{i,t}= C_{ea,t} + X_{i,t} + \phi_i + \varepsilon_{ea,t}
 \end{equation}
 
-where $H$ is a $1\times N$ vector of the hours worked by individual children, $C$ is a $N\times96$ matrix of climate variables\footnote{Since the climate mean deviations of eight metrics are included for each month, the number of independent climate variables is $12\times8=96$.}, and $X$ is includes individual and household level control variables such as age, sex, total household consumption expenditure, the household's MPI, and a dummy that takes one if the household is located in a rural area and zero otherwhise. $\phi_{i}$ denotes individual fixed effects and $\varepsilon_{ea,t}$ is the ideosyncratic error term clustered by both ea and time. To account for regional climatic variation, the second model adds fixed effects for ea-level, lga-level, climate region, and visit-type (``post-planting'' vs ``post-harvest''). Denoting these fixed effects by $\phi_{ea}$,$\phi_{lga}$, $\phi_r$ and $\phi_v$, the model becomes
+where $H$ is a $1\times N$ vector of the hours worked by individual children, $C$ is a $N\times96$ matrix of climate variables\footnote{Since the climate mean deviations of eight metrics are included for each month, the number of independent climate variables is $12\times8=96$.}, and $X$ is includes individual and household level control variables: age, sex, total household consumption expenditure, the household's MPI, and a dummy that is one if the household is located in a rural area and zero otherwhise. $\phi_{i}$ denotes individual fixed effects and $\varepsilon_{ea,t}$ is the ideosyncratic error term clustered by both ea and time. To account for regional climatic variation, the second model adds fixed effects for, lga-level, climate zone, and visit-type (``post-planting'' vs ``post-harvest''). Denoting these fixed effects by $\phi_{lga}$, $\phi_z$ and $\phi_v$, the model becomes
 \begin{equation}
-    H_{i,t}= C_{ea,t} + X_{it} + \phi_i + \phi_{lga} + \phi_r + \phi_v + \varepsilon_{ea,t}
+    H_{i,t}= C_{ea,t} + X_{it} + \phi_i + \phi_{lga} + \phi_z + \phi_v + \varepsilon_{ea,t}
 \end{equation}
 
 In the third model specification, the climate variables enter the regression using a flexible functional form. This flexibility is justified for the following reasons: first, prior work estimating the effects of climate metrics has documented non-linearities across a wide array of responses \citep{Carleton2016}; second, an appropriate flexible functional form should reveal the shape of the underlying response function, linear or otherwise \citep{Hsiang2016a}; and third, it makes intuitive sense that plant-growth - which is the major input to household production in the theoretical model - exhibits in theory an optimal set of climate imputs, below or above which growth will be less optimal.
@@ -491,7 +491,7 @@ One common non-parametric apprach is to fit a polynomial to account for curvatur
 
 I proceed by generating a basis matrix for representing the family of piecewise-cubic splines with a sequence of interior knots, which define the bins of data, and the boundary condition that the function be linear beyond the the extremes of the available data. I choose knots at the 25th, 50th, and 75th percentile which effectively divide the climate data into five bins - then a natural cubic B-spline is used on each of these bins to achieve a flexible functional form. Denoting the spline function by $f()$, this procedure is written $f(C_{ea,t})=\sum_{b=1}^5 \beta_b C_{ea,t,b}$. The spline divides the climate variables into five bins $b=\{1,2,3,4,5\}$ according to the data quintiles and fits the equivalent of a cubic function to each segment. $\beta$ are the resulting coefficients of interest. The resulting B-spline regression model is
 \begin{equation}
-    H_{i,t}= f(C_{ea,t}) + X_{i,t} + \phi_i + \phi_{lga} + \phi_r + \phi_v + \varepsilon_{ea,t}.
+    H_{i,t}= f(C_{ea,t}) + X_{i,t} + \phi_i + \phi_{lga} + \phi_z + \phi_v + \varepsilon_{ea,t}.
 \end{equation}
 
 \section{Findings}
