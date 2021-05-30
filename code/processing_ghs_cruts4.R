@@ -267,41 +267,41 @@ rm(frs) # no frost NGA
 
 # generate output
 cld <- generate(cld)
-names(cld) <-c("cld01","cld02","cld03","cld04",
-               "cld05","cld06","cld07","cld08",
-               "cld09","cld10","cld11","cld12")
+names(cld) <-c("cld01_md","cld02_md","cld03_md","cld04_md",
+               "cld05_md","cld06_md","cld07_md","cld08_md",
+               "cld09_md","cld10_md","cld11_md","cld12_md")
 dtr <- generate(dtr)
-names(dtr) <-c("dtr01","dtr02","dtr03","dtr04",
-               "dtr05","dtr06","dtr07","dtr08",
-               "dtr09","dtr10","dtr11","dtr12")
+names(dtr) <-c("dtr01_md","dtr02_md","dtr03_md","dtr04_md",
+               "dtr05_md","dtr06_md","dtr07_md","dtr08_md",
+               "dtr09_md","dtr10_md","dtr11_md","dtr12_md")
 pet <- generate(pet)
-names(pet) <-c("pet01","pet02","pet03","pet04",
-               "pet05","pet06","pet07","pet08",
-               "pet09","pet10","pet11","pet12")
+names(pet) <-c("pet01_md","pet02_md","pet03_md","pet04_md",
+               "pet05_md","pet06_md","pet07_md","pet08_md",
+               "pet09_md","pet10_md","pet11_md","pet12_md")
 pre <- generate(pre)
-names(pre) <-c("pre01","pre02","pre03","pre04",
-               "pre05","pre06","pre07","pre08",
-               "pre09","pre10","pre11","pre12")
+names(pre) <-c("pre01_md","pre02_md","pre03_md","pre04_md",
+               "pre05_md","pre06_md","pre07_md","pre08_md",
+               "pre09_md","pre10_md","pre11_md","pre12_md")
 tmn <- generate(tmn)
-names(tmn) <-c("tmn01","tmn02","tmn03","tmn04",
-               "tmn05","tmn06","tmn07","tmn08",
-               "tmn09","tmn10","tmn11","tmn12")
+names(tmn) <-c("tmn01_md","tmn02_md","tmn03_md","tmn04_md",
+               "tmn05_md","tmn06_md","tmn07_md","tmn08_md",
+               "tmn09_md","tmn10_md","tmn11_md","tmn12_md")
 tmp <- generate(tmp)
-names(tmp) <-c("tmp01","tmp02","tmp03","tmp04",
-               "tmp05","tmp06","tmp07","tmp08",
-               "tmp09","tmp10","tmp11","tmp12")
+names(tmp) <-c("tmp01_md","tmp02_md","tmp03_md","tmp04_md",
+               "tmp05_md","tmp06_md","tmp07_md","tmp08_md",
+               "tmp09_md","tmp10_md","tmp11_md","tmp12_md")
 tmx <- generate(tmx)
-names(tmx) <-c("tmx01","tmx02","tmx03","tmx04",
-               "tmx05","tmx06","tmx07","tmx08",
-               "tmx09","tmx10","tmx11","tmx12")
+names(tmx) <-c("tmx01_md","tmx02_md","tmx03_md","tmx04_md",
+               "tmx05_md","tmx06_md","tmx07_md","tmx08_md",
+               "tmx09_md","tmx10_md","tmx11_md","tmx12_md")
 vap <- generate(vap)
-names(vap) <-c("vap01","vap02","vap03","vap04",
-               "vap05","vap06","vap07","vap08",
-               "vap09","vap10","vap11","vap12")
+names(vap) <-c("vap01_md","vap02_md","vap03_md","vap04_md",
+               "vap05_md","vap06_md","vap07_md","vap08_md",
+               "vap09_md","vap10_md","vap11_md","vap12_md")
 wet <- generate(wet)
-names(wet) <-c("wet01","wet02","wet03","wet04",
-               "wet05","wet06","wet07","wet08",
-               "wet09","wet10","wet11","wet12")
+names(wet) <-c("wet01_md","wet02_md","wet03_md","wet04_md",
+               "wet05_md","wet06_md","wet07_md","wet08_md",
+               "wet09_md","wet10_md","wet11_md","wet12_md")
 
 # merge with GHS data
 NGA_panel %<>%
@@ -336,7 +336,6 @@ NGA_panel %<>%
     !is.na(pri_hrs_7d) & !is.na(pri_hrs_7d) ~ NA_real_,
     age >= 18 ~ NA_real_
   ))
-NGA_
 
 NGA_panel %<>%
   mutate(childworkchores = case_when(

@@ -1,0 +1,77 @@
+New variables:
+
+household size
+number of children - from age and hhid and **relationship to head of hh (s1q3)**
+age-order among children - from age and hhid
+sex of household head - from sex and hhid
+land ownership - NOT POSSIBLE
+quality of land - NOT POSSIBLE
+
+For MPI:
+
+Health:
+- not enough food to feed the household
+	1: sect9_plantingw1 - s9q5
+	2: sect12_harvestw1 - s12q5
+	3: sect9_plantingw2 - s9q5
+	4: 
+	5: sect9_plantingw3 - s9q5
+	6:
+- number of dead children
+	1:
+	2: sect4a_harvestw1 s4aq45a + s4aq45b
+	3:
+	4: sect4a_harvestw2 s4aq45a + s4aq45b
+	5:
+	6:
+- instead: BEDNETS:
+	1:
+	2: sect4a_harvestw1 - s4aq37
+	3:
+	4: sect4a_harvestw2 - s4aq37
+	5: 
+	6: sect4a_harvestw2 - s4aq37
+Education:
+ 
+- years of schooling
+- school attendance of children
+Abject Poverty:
+
+- cooking fuel
+	2: sect8_harvestw1 s8q11
+	4: sect8_harvestw2 s8q11
+	5: sect11_plantingw3 s11q11
+
+- no electricity at home
+	2: sect8_harvestw1 s8q17
+	4: sect8_harvestw2 s8q17
+	5: sect11_plantingw3 s11q17b
+
+- sanitation facility (shared or none/unimproved)
+	2: sect8_harvestw1 s8q36a + s8q37
+	4: sect8_harvestw2 s8q36a + s8q37
+	5: sect11_plantingw3 s11q36 + s11q37		
+- drinking water
+	2: sect8_harvestw1 s8q34a + s8q34b
+	4: sect8_harvestw2 s8q34a + s8q34b
+	5: sect11_plantingw3 s11q34a + s11q34b
+- floor material
+	2: sect8_harwestw1 s8q8 
+	4: sect8_harwestw2 s8q8
+	5: sect11_plantingw3 s11q8
+	 
+- roof material
+	2: sect8_harwestw1 s8q7
+	4: sect8_harwestw2 s8q7
+	5: sect11_plantingw3 s11q7
+
+- walls material
+	2: sect8_harwestw1 s8q6
+	4: sect8_harwestw2 s8q6
+	5: sect11_plantingw3 s11q6
+
+- more than five amenities!
+	1: sect5_plantingw1 s5q1
+	3: sect5_plantingw2 s5q1
+	5: sect5_plantingw3 s5q1
+
