@@ -359,10 +359,77 @@ T4 <- left_join(T4, pov_4, by = c("zone", "state", "lga", "sector", "ea", "hhid"
 T5 <- left_join(T5, pov_5, by = c("zone", "state", "lga", "sector", "ea", "hhid")) #26471
 T6 <- left_join(T6, pov_5, by = c("zone", "state", "lga", "sector", "ea", "hhid")) #26171
 
+## household's maximum education
+hhmaxeduc <- aggregate(highest_educ ~ t + hhid, data = NGA_panel, max, na.rm=T)
+
+e1 <- hhmaxeduc[hhmaxeduc$t==1,]
+names(e1)[3] <- "maxeduc"
+
+e3 <- hhmaxeduc[hhmaxeduc$t==3,]
+names(e3)[3] <- "maxeduc"
+
+e6 <- hhmaxeduc[hhmaxeduc$t==6,]
+names(e6)[3] <- "maxeduc"
+
+T1 <- left_join(T1, e1, by=c("t", "hhid"))
+T2 <- left_join(T2, e1, by=c("t", "hhid"))
+T3 <- left_join(T3, e3, by=c("t", "hhid"))
+T4 <- left_join(T4, e3, by=c("t", "hhid"))
+T5 <- left_join(T5, e6, by=c("t", "hhid"))
+T6 <- left_join(T6, e6, by=c("t", "hhid"))
+
+## household's children's minimum attendance
+hhminatt <- aggregate(NGA_panel$school_current ~ t + hhid, data = NGA_panel, max, na.rm=T)
+
+e1 <- hhminatt[hhminatt$t==1,]
+names(e1)[3] <- "minatt"
+e2 <- hhminatt[hhminatt$t==2,]
+names(e2)[3] <- "minatt"
+e3 <- hhminatt[hhminatt$t==3,]
+names(e3)[3] <- "minatt"
+e4 <- hhminatt[hhminatt$t==4,]
+names(e4)[3] <- "minatt"
+e6 <- hhminatt[hhminatt$t==6,]
+names(e6)[3] <- "minatt"
+
+T1 <- left_join(T1, e1, by=c("t", "hhid"))
+T2 <- left_join(T2, e2, by=c("t", "hhid"))
+T3 <- left_join(T3, e3, by=c("t", "hhid"))
+T4 <- left_join(T4, e4, by=c("t", "hhid"))
+T5 <- left_join(T5, e4, by=c("t", "hhid"))
+T6 <- left_join(T6, e6, by=c("t", "hhid"))
 
 ## piece panel back together
 
 NGA_panel <- rbind(T1, T2, T3, T4, T5, T6)
+
+## recode drinking water indicator
+NGA_panel %<>% mutate(drinking_water = case_when(
+  drinking_unit == 2 ~ as.numeric(drinking_time*120),
+  drinking_unit == 1 ~ as.numeric(drinking_time*2))
+  )
+
+## recode building structure
+
+NGA_panel %<>% mutate(
+  roof = case_when(
+    material_roof == 1 |
+      material_roof == 5 |
+      material_roof == 6 |
+      material_roof == 7 ~ 1,
+    material_roof == 2 |
+      material_roof == 3 |
+      material_roof == 4 ~ 0,
+    is.na(material_roof) ~ NA_real_),
+  wall = case_when(
+    material_wall < 5 ~ 1,
+    material_wall > 4 ~ 0,
+    is.na(material_wall) ~ NA_real_),
+  floor = case_when(
+    material_floor < 3 ~ 1,
+    material_floor > 2 ~ 0,
+    is.na(material_floor) ~ NA_real_)
+  )
 
 ## declare factor variables
 
@@ -384,28 +451,63 @@ NGA_panel %<>% mutate( notenoughfood = case_when(
 NGA_panel$notenoughfood <- factor(NGA_panel$notenoughfood, levels = c(1,2), labels(c("yes","no")))
 NGA_panel <- NGA_panel[,-366]
 
-## calculate MPI
+## compose MPI binary indicators (1=poor,0=not poor)
 
-###################
-##################
-#################
-################
-###############
-##############
-#############
-############
-###########
-##########
-#########
-########
-#######
-######
-#####
-####
-###
-##
-#
+NGA_panel %<>% mutate(
+  mpi_hunger = case_when(notenoughfood == 1 ~ 1,
+                         notenoughfood == 2 ~ 0),
+  mpi_educ_sixyrs = case_when(maxeduc <  16 ~ 1,
+                              maxeduc >= 16 ~ 0,
+                              is.na(maxeduc)~ NA_real_),
+  mpi_educ_att = case_when(minatt==2 ~ 1,
+                           minatt==1 ~ 0,
+                           is.na(minatt) ~ NA_real_),
+  mpi_fuel = case_when(fuel_cooking < 5 ~ 1,
+                       fuel_cooking > 4 ~ 0,
+                       is.na(fuel_cooking) ~ NA_real_),
+  mpi_electricity = case_when(electricity==2 ~ 1,
+                              electricity==1 ~ 0,
+                              is.na(electricity) ~ NA_real_),
+  # improved sanitation: poor is none, bucket, uncovered pit, other, or shared!
+  mpi_sanitation = case_when(toilet_type == 0 |
+                               toilet_type== 5|
+                               toilet_type== 7|
+                               toilet_type== 9 ~ 1,
+                             toilet_type== 2 & toilet_shared==2 ~ 1,
+                             toilet_type== 3 & toilet_shared==2 ~ 1,
+                             toilet_type== 4 & toilet_shared==2 ~ 1,
+                             toilet_type== 6 & toilet_shared==2 ~ 1,
+                             toilet_type== 8 & toilet_shared==2 ~ 1,
+                             toilet_type== 2 & toilet_shared!=2 ~ 0,
+                             toilet_type== 3 & toilet_shared!=2 ~ 0,
+                             toilet_type== 4 & toilet_shared!=2 ~ 0,
+                             toilet_type== 6 & toilet_shared!=2 ~ 0,
+                             toilet_type== 8 & toilet_shared!=2 ~ 0,
+                             is.na(toilet_type) ~ NA_real_),
+  mpi_water = case_when(drinking_water >= 30 ~ 1,
+                        drinking_water < 30 ~ 0,
+                        is.na(drinking_water) ~ NA_real_),
+  mpi_building = case_when(roof == 1 | wall == 1 | floor == 1 ~ 1,
+                           roof == 0 & wall == 0 & floor == 0 ~ 0),
+  mpi_assets = case_when(amenities < 6 ~ 1,
+                         amenities > 5 ~ 0)
+) 
 
+### compute MPI dimenstion scores
+
+NGA_panel$MPI_health <- NGA_panel$mpi_hunger
+NGA_panel$MPI_educaction <- NGA_panel$mpi_educ_att*0.5 + NGA_panel$mpi_educ_sixyrs*0.5
+NGA_panel$MPI_poverty <- NGA_panel$mpi_fuel*(1/6) + NGA_panel$mpi_electricity*(1/6) +
+                         NGA_panel$mpi_sanitation*(1/6) + NGA_panel$mpi_water*(1/6) +
+                         NGA_panel$mpi_building*(1/6) + NGA_panel$mpi_assets*(1/6)
+
+### aggregate MPI
+
+NGA_panel$MPI <- (rowSums(NGA_panel[,395:397], na.rm = T))
+NGA_panel$MPI <- NGA_panel$MPI/3
+
+ggplot(data = NGA_panel, aes(x=MPI)) +
+  geom_histogram(alpha=1, bins = 15)
 
 ## non-negative child work!
 NGA_panel %<>% mutate(
@@ -417,3 +519,6 @@ NGA_panel %<>% mutate(
   )
 )
 
+save(NGA_panel, file = "outputs/NGA_panel_final.Rda") #save and you're done!
+rm(list = ls(all=T))
+quit()
