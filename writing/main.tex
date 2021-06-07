@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \renewcommand{\baselinestretch}{1.5} 
+
 \usepackage[utf8]{inputenc}
 \usepackage[acronym,toc]{glossaries}
 \usepackage{url}
@@ -117,7 +118,7 @@ In SSA alone, the effects of climate change are responsible for at least 1,000 d
 
 Even so, there is virtually no literature investigating the implications of these negative effects for child labour. The little empirical evidence there is displays three common flaws: limited data, misspecification, and a lack of theoretical underpinning. These shortcomings and the policy-relevance and urgency\footnote{Given the proximity of the 2025 deadline scoped by SDG 8.} of the child labour debate provide a clear motivation for further research. To narrow the gap, this paper is dedicated to analysing the effects of climate change on the prevalence of child labour in agriculture, as well as their implications for household and children’s welfare.
 
-This paper is organised as follows. Following a detailed overview of the literature in section~\ref{sec:literature}, section~\ref{sec:model} extends the economic theory of child labour to account for a sustained shock to household production due to climate change. The resulting model produces theoretically sound hypotheses that can be tested empirically. Section~\ref{sec:empirical_analysis} outlines the empirical problem and introduces an econometric framework to tackle it. The methods used mend the shortcomings noted in the literature; a longitudinal data set from Nigeria (2010-2019) is combined with geocoded weather data from suitable ground level stations, supplemented by satellite-based estimates. The findings drawn from this analysis are discussed in section~\ref{sec:findings}. %In section~\ref{sec:simulation}, I perform a structural estimation of the model developed in chapter two. Once calibrated to the data, the effects of future climate change are simulated using the predictions of a global climate model (GCM) instead of historical weather data. The results offer novel and relevant input for weighing the costs and benefits of GHG emission abatement – not only monetarily but through the lens of child welfare.
+This paper is organised as follows. Following a detailed overview of the literature in section~\ref{sec:literature}, section~\ref{sec:model} extends the economic theory of child labour to account for a sustained shock to household production due to climate change. The resulting model produces theoretically sound hypotheses that can be tested empirically. Section~\ref{sec:case_selection} provides arguments for Nigeria as a case study and presents appropriate data for the empirical analysis. The data chosen mend the shortcomings noted in the literature; a longitudinal data set from Nigeria (2010-2019) is combined with geocoded weather data from suitable ground level stations, supplemented by satellite-based estimates. Section~\ref{sec:empirical_strategy} outlines the empirical problem and describes the econometric framework to tackle it. The findings drawn from this analysis are discussed in section~\ref{sec:findings}. %In section~\ref{sec:simulation}, I perform a structural estimation of the model developed in chapter two. Once calibrated to the data, the effects of future climate change are simulated using the predictions of a global climate model (GCM) instead of historical weather data. The results offer novel and relevant input for weighing the costs and benefits of GHG emission abatement – not only monetarily but through the lens of child welfare.
 Section~\ref{sec:conclusion} identifies actionable policies and concludes.
 
 \section{Literature}
@@ -346,11 +347,8 @@ where $p_1$, $p_2$, $p_3$ and $p_4$ are the prices for non-agricultural products
 
 \subsection{Hypotheses}
 
-\section{Empirical Analysis}
-\label{sec:empirical_analysis}
-
-\subsection{Case Selection}
-\label{sub:case_selection}
+\section{Case and data selection}
+\label{sec:case_selection}
 
 Nigeria is the most populous and the sixth-most densely populated country in Africa\footnote{With a population of 200 million, Nigeria is also the sixth-most populous country in the world.}, and its 2020 nominal GDP of USD $450$ billion makes it the biggest economy on the continent \citep{WorldBank2021}.\footnote{In terms of purchasing power parity, only Egypt narrowly outperforms Nigeria.} About half of the population live in urban areas, particularly the large metropolitan areas in the South and Southwest towards the country's coast on the Gulf of Guinea. Moving North, the population density decreases gradually, giving way to wide savannahs and steppes which are characterised predominantly by agriculture.
 
@@ -467,41 +465,128 @@ The six time points for which data is available in the GHS panel are matched wit
     \label{tab:cruvars}
 \end{table}
 
-\subsection{Empirical approach:}
-\label{sub:empirical_approach}
+\subsection{Climate data preparation}
 
-To identify the causal effect of climate on child labour hours, I use a panel fixed effects model with the climate variables CLD, PET, PRE, TMN, TMX, TMP, VAP, and WET entering the regression not in their level but as devations from a local monthly means, taken between 1999 and 2008 at ea level.\footnote{DTR is omitted as it would cause multicollinearity related to TMN and TMX. FRS is omitted as there are no recorded days below freezing.} The value of the panel nature of the dataset is that it allows me to control for unobservable cross-sectional and seasonal variation. Following the common assumption that climate is the underlying distribution from which weather is stochastically drawn, shifts in that function can be inferred from the data by taking mean deviations \citet{Auffhammer2013,Hsiang2016a, Hsiang2018}. Since the variables include monthly minimum, maximum, and mean temperature, this procedure allows for evaluating the change in mean as well as variance of temperature.
+In the following empirical exercise, the climate variables CLD, PET, PRE, TMN, TMX, TMP, VAP, and WET will enter the regression not only in their level but also in devations from a local monthly mean, taken between 1999 and 2008 at ea level.\footnote{DTR is omitted as it would cause multicollinearity related to TMN and TMX. FRS is omitted as there are no recorded days below freezing.} The value of the panel nature of the dataset is that it allows me to control for unobservable cross-sectional and seasonal variation. Following the common assumption that climate is the underlying distribution from which weather is stochastically drawn, shifts in that function can be inferred from the data by taking mean deviations \citet{Auffhammer2013,Hsiang2016a, Hsiang2018}. Since the variables include monthly minimum, maximum, and mean temperature, this procedure allows for evaluating the change in mean as well as variance of temperature.
 
 Since typically growing and harvesting follow an approximately fixed pattern in the yearly cycle, forming monthly mean-deviations also controls for the more and less agriculturally significant times of the year. This also yields an elegant way to deal with regional disparities. I include all months rather than settling for some months that may or may not coincide with the growth season at any given location in Nigeria. Using region fixed effects then controls for the regional climate disparity.
 
-For robustness, I estimate three variants of this model. The first is a linear model with only individual-level fixed effects. Let $i$ index the individual and $t$ time between 1 and 6. Then the model can be written as
+The existing literature suggests that there is some value in letting the climate variables enter the regression using a flexible functional form. This flexibility is justified for the following reasons: first, prior work estimating the effects of climate metrics has documented non-linearities across a wide array of responses \citep{Carleton2016}; second, an appropriate flexible functional form should reveal the shape of the underlying response function, linear or otherwise \citep{Hsiang2016a}; and third, it makes intuitive sense that plant-growth - which is the major input to household production in the theoretical model - exhibits in theory an optimal set of climate imputs, below or above which growth will be less optimal, hinting towards a nonlinear response.
+
+One common approach is to fit a polynomial to account for curvature. However, polynomials of degrees higher than three are not straight-forward to interpret.\footnote{A linear model represents a system with a constant rate of change, a quadratic model a system with a rate of change that increases or decreases at a fixed rate (the acceleration), and a cubic model represents a system in which the acceleration changes at a constant rate. Similar correspondences do not exist for higher order polynomials.} An alternative to increasing the degree of the fitted polynomial to account for curvature is to divide the range of the data into smaller pieces and polynomials of lesser degree to each of the subintervals, stipulating that the resulting function be continuous \citep[see e.g.][pp. 275- 279]{greene2018}. However, the use of truncated polynomials can sometimes lead to numerical problems. If two knots are very close then the associated truncated polynomial terms will be very similar for all observations, almost co-linear, and the fitting algorithm will become unstable. Additionally, the values in the design matrix can be very large which can lead to overflow errors \citep[see e.g.,][]{hastie2009a}. These problems can be avoided in practice by using a different set of functions in place of the truncated polynomials. There a several sets of functions which produce the same range of fitted curves, called equivalent bases \citep{hastie1987,hastie2009a}. One commonly used variant are B-splines.\footnote{Although any function that can be fit with the truncated polynomials can also be fit with B-splines, and vice versa, the B-spline basis functions are not colinear making the computational algorithms for fitting splines much more stable.}  
+
+I proceed by generating a basis matrix for representing the family of piecewise-cubic splines with a sequence of interior knots, which define the bins of data, and the boundary condition that the function be linear beyond the extremes of the available data. I choose knots at the 25th, 50th, and 75th percentile which effectively divide the climate data into four bins - then a natural cubic B-spline is used on each of these bins to achieve a flexible functional form. Denoting the spline function by $f()$, this procedure is written $f(C_{ea,t})=\sum_{b=1}^4 \beta_b C_{ea,t,b}$. The spline divides the climate variables into four bins $b=\{1,2,3,4\}$ according to the data quintiles and fits the equivalent of a cubic function to each segment. This offers a non-linear alternative to using the climate data as is.
+
+\section{Empirical strategy}
+\label{sec:empirical_strategy}
+
+To identify the causal effect of climate on child labour hours, a panel data model of the fixed effects (FE) variety is needed to account for unobserved, time-invariant variables. Generically, this can be represented by the usual linear, unobserved effects model for i.i.d. cross-section observations: for any $i$,
+\begin{equation}
+\label{eq:linear_FE}
+    y_it = \alpha_i + \mathbf{x}_{it} \beta + u_{it}, t=1,...,T,
+\end{equation}
+where $\mathbf{x}_{it}$ is the $1\times K$ vector of independent variables and $\beta$ is the $K\times 1$ vector that includes the coefficients of interest. $\alpha_i$ denotes the individual fixed effects and $u_{it}$ is the ideosyncratic error term.
+
+Plotting the dependent variable - children's weekly working hours including household chores -  in figure \ref{fig:censored} shows a cluster at zero due to the fact that most children do in fact not work at all. In statistical terms, the data is censored at zero due to a selection process that selects children into two groups - those who work and those who do not. This onobserved selection process poses a challenge as the effects estimated by standard FE may be biased as a result(\textit{viz.} selection bias).
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[scale=0.75]{../outputs/childworkchors.png}
+    \caption{Data censoring at zero}
+    \caption*{\footnotesize{\textit{Note:} Observed child labour hours including household chores, which were constructed from the GHS, are censored at zero. \textit{Source:} Author's own compilation.}}
+    \label{fig:censored}
+\end{figure}
+
+In cross-sectional applications, sample selection is commonly corrected for by modelling the selection process and the observed process in two separate equations. The Tobit estimator \citep{tobin1958,amemiya1984} and Heckman's selection correction \citep{heckman1979} method are the most used estimators of this kind. Unfortunately, these frameworks do not readily extend to panel data models with FE.\footnote{The issue is that the first equation, which models the selection process, is a binary choice model that is commonly nonlinear. Unlike in linear models, which remain consistent when the fixed effect is treated as a parameter to be estimated, nonlinear models are generally not consistent in this setting (This is the well known ``incidental parameters problem'').} Fortunately, \citet {wooldridge1995, wooldridge2010} offers a test of sample selection and also an FE estimator variety that works for unbalanced panels with sample selection. The following strategy draws heavily on his proposals and applies them to the case of Nigerian child labour. 
+
+First, the selection process needs to be describled. Denote the vector of selection indicators for each $i$ in the panel as $\mathbf{s}_i=(s_{i1},...,s_{iT})'$ and assume that $(\mathbf{x}_{it}, y_{it})$ are only observed if $s_{it} = 1$, which is equivalent to saying that child $i$ works more than zero hours in cross section $t$. \citet{wooldridge1995} shows that two assumptions are sufficient for the ordinary FE estimator to be consistent and asymptotically normal (as $N\rightarrow \infty$).
+\begin{enumerate}
+    \item \label{Assumption_1'}\textbf{Assumption 1'} \citep{wooldridge1995} states that, conditional on the fixed effects, the independent variables, and the selection process, the error term is mean zero for all cross sections in the panel: $\mathbb{E}(u_{it}|\alpha_i, \mathbf{x}_i, \mathbf{s}_i), t= 1,2,...,T.$       \item The expected squared error conditional on fixed effects, independent variables, and selection is equal to the standard deviation $\mathbb{E}(\mathbf{u}_i,\mathbf{u}_i'|\alpha_i, \mathbf{x}_i, \mathbf{s}_i)=\sigma^2 \mathbf{I}_T$
+\end{enumerate}
+A test as for whether or not the ordinary FE estimator is appropriate along these lines is presented next, as well as an alternative estimator for when this is not the case.
+
+\subsection{Testing for selection bias}
+
+The dependent variable $y_{it}$ is only observed if the selector variable $s_it=1$ and not otherwise. For each $t=1,2,...T$, define a latent variable
 
 \begin{equation}
-    H_{i,t}= C_{ea,t} + X_{i,t} + \phi_i + \varepsilon_{ea,t}
+\label{eq:latent_variable}
+    h_{it}^*= \delta_t0 + \mathbf{x}_{i1}\delta_{t1}+...+\mathbf{x}_{iT}\delta_{tT}+v_{it},
 \end{equation}
 
-where $H$ is a $1\times N$ vector of the hours worked by individual children, $C$ is a $N\times96$ matrix of climate variables\footnote{Since the climate mean deviations of eight metrics are included for each month, the number of independent climate variables is $12\times8=96$.}, and $X$ is includes individual and household level control variables: age, sex, total household consumption expenditure, the household's MPI, and a dummy that is one if the household is located in a rural area and zero otherwhise. $\phi_{i}$ denotes individual fixed effects and $\varepsilon_{ea,t}$ is the ideosyncratic error term clustered by both ea and time. To account for regional climatic variation, the second model adds fixed effects for lga-level, climate zone, and visit-type (``post-planting'' vs ``post-harvest''). Denoting these fixed effects by $\phi_{lga}$, $\phi_z$ and $\phi_v$, the model becomes
+where $v_{it}$ is independent of $(\alpha_i, \mathbf{x}_i)$, $v_{it}\sim N(0,\sigma_t^2)$, and $\delta_{tr}$ is a $K \times 1$ vector of unknown parameters, r = 1,2,...,T. Define the binary selection indiator as $s_it\equiv1[h_{it}^*>0]$ and note that the data clearly shows that the censored variable $h_{it}\equiv \max(0,h_{it}^*)$ is observed for all $t$; we observe actual values for hours worked rather than a binary indicator only. \citet{wooldridge1995} calls this partial observability of the selection variable. Note that $\mathbf{x}_i$ is the same in equations \ref{eq:linear_FE} and \ref{eq:latent_variable} as it is not strictly necessary for testing and correcting for selection bias to have an exclusion restriction in equation \ref{eq:linear_FE}.
+
+Based on the fact that $\mathbf{s}_i$ is a function of ($\mathbf{x}_i, \mathbf{v}_i$), where $\mathbf{v_i}\equiv (v_{i1}, v_{i2},...,v_{iT})'$, a sufficient condition for Assumption \href{Assumption_1'}{1'} - with $\mathbf{h}_i$ in the conditioning set - is presented on page 121 of \citet{wooldridge1995}. From it follows that
 \begin{equation}
-    H_{i,t}= C_{ea,t} + X_{it} + \phi_i + \phi_{lga} + \phi_z + \phi_v + \varepsilon_{ea,t}
+    \mathbb{E}(y_{it}|\alpha_i, \mathbf{x}_i, \mathbf{v}_i, \mathbf{v}_i)=\alpha_i+\mathbf{x}_it \beta + \rho v_{it}.
 \end{equation}
+If $v_{it}$ could be observed whenever $s_{it}=1$, then a test for selection bias could be obtained by including $v_{it}$ as an additional regressor in FE estimation and testing $H_0: \rho=0$. While $v_{it}$ is unobservable, it can be easily estimated whenever $s_{it}=1$, because $v_{it}$ is simply the error term of a Tobit model. Using this insight, \citet{wooldridge1995} proposes the following test for selection bias.
 
-In the third model specification, the climate variables enter the regression using a flexible functional form. This flexibility is justified for the following reasons: first, prior work estimating the effects of climate metrics has documented non-linearities across a wide array of responses \citep{Carleton2016}; second, an appropriate flexible functional form should reveal the shape of the underlying response function, linear or otherwise \citep{Hsiang2016a}; and third, it makes intuitive sense that plant-growth - which is the major input to household production in the theoretical model - exhibits in theory an optimal set of climate imputs, below or above which growth will be less optimal.
+\begin{proposition} \citep[][Procedure 3.1]{wooldridge1995}
+\label{prop:test}
 
-One common non-parametric apprach is to fit a polynomial to account for curvature. However, polynomials of degrees higher than three are not straight-forward to interpret.\footnote{A linear model represents a system with a constant rate of change, a quadratic model a system with a rate of change that increases or decreases at a fixed rate (the acceleration), and a cubic model represents a system in which the acceleration changes at a constant rate. Similar correspondences do not exist for higher order polynomials.} An alternative to increasing the degree of the fitted polynomial to account for curvature is to divide the range of the data into smaller pieces and polynomials of lesser degree to each of the subintervals, stipulating that the resulting function be continuous \citep[see e.g.][pp. 275- 279]{greene2018}. However, the use of truncated polynomials can sometimes lead to numerical problems. If two knots are very close then the associated truncated polynomial terms will be very similar for all observations, almost co-linear, and the fitting algorithm will become unstable. Additionally, the values in the design matrix can be very large which can lead to overflow errors \citep[see e.g.,][]{hastie2009a}. These problems can be avoided in practice by using a different set of functions in place of the truncated polynomials. There a several sets of functions which produce the same range of fitted curves, called equivalent bases \citep{hastie1987,hastie2009a}. One commonly used variant are B-splines.\footnote{Although any function that can be fit with the truncated polynomials can also be fit with B-splines, and vice versa, the B-spline basis functions are not colinear making the computational algorithms for fitting splines much more stable.}  
-
-I proceed by generating a basis matrix for representing the family of piecewise-cubic splines with a sequence of interior knots, which define the bins of data, and the boundary condition that the function be linear beyond the the extremes of the available data. I choose knots at the 25th, 50th, and 75th percentile which effectively divide the climate data into four bins - then a natural cubic B-spline is used on each of these bins to achieve a flexible functional form. Denoting the spline function by $f()$, this procedure is written $f(C_{ea,t})=\sum_{b=1}^4 \beta_b C_{ea,t,b}$. The spline divides the climate variables into four bins $b=\{1,2,3,4\}$ according to the data quintiles and fits the equivalent of a cubic function to each segment. $\beta$ are the resulting coefficients of interest. The resulting B-spline regression model is
+\textbf{Step 1:} For each $t$, estimate the equation
 \begin{equation}
-    H_{i,t}= f(C_{ea,t}) + X_{i,t} + \phi_i + \phi_{lga} + \phi_z + \phi_v + \varepsilon_{ea,t}.
+    h_{it}=\max(0, \mathbf{x}_i\delta_t+v_{it})
+\end{equation}
+by standard Tobit, where now $\mathbf{x}_i =(1, x_{i1},...,x_{iT})$ and $\delta_t \equiv (\delta_{t0}, \delta_{t1}',...,\delta_{tT}')'$. For $s_{it}=1$, define $\hat{v}_{it} = h_{it}-\mathbf{x}_i\hat{\delta}_t$.
+
+\textbf{Step 2:} Estimate the equation
+\begin{equation}
+    \ddot{y}_{it}=\ddot{\mathbf{x}}_{it} \beta \ddot{v}_{it}+ \text{error}_{it}
+\end{equation}
+by pooled OLS using those observations for which $s_{it}=1$, where
+\begin{align}
+    \ddot{\mathbf{x}}_{it}&\equiv\mathbf{x}_{it}-T_i^{-1}\sum_{r=1}^T s_{ir}\mathbf{x}_ir,\\
+    \ddot{{y}}_{it}&\equiv y_{it}-T_i^{-1}\sum_{r=1}^T s_{ir} y_ir,\\
+    \ddot{v}_{it}&\equiv \hat{v}_{it}-T_i^{-1}\sum_{r=1}^T s_{ir} \hat{v}_ir,\\
+    T_i &= \sum_{t=1}^T s_{it}.
+\end{align}
+
+\textbf{Step 3:} Test $H_0: \rho=0$ using the $t$-statistic for $\hat{\rho}$.
+
+\qed
+\end{proposition}
+
+
+\subsection{Correcting for selection bias}
+
+In addition to the above, correcting for selection bias according to the procedures presented in \citet{wooldridge2010} calls for two additional assumptions.
+
+\paragraph{Assumption 2.} \label{ass2} Define $h_{it}^*$ as in equation \ref{eq:latent_variable}, where $v_{it}$ is independent of $\mathbf{x}_i$ and $v_{it}\sim N(0,\sigma_t^2)$. Let $h\equiv \max(0,h_{it}^*), s_{it}\equiv 1[h_{it}^*>0], t=1,...,T.$ \qed
+
+\paragraph{Assumption 3.} \label{ass3} For some zero-mean random variable $\zeta_i$ and all $t=1,2,\dots,T$,
+\begin{equation}
+    \mathbb{E}(u_{it}|\alpha_i,\zeta_i,\mathbf{x}_i,\mathbf{v}_i)= \zeta_i+\rho v_{it}.
+\end{equation}
+\qed
+
+Under assumptions 2 and 3, \citet{wooldridge2010} offers following basis for error correction. 
+
+\begin{equation}
+    \label{eq:W1995-4.4}
+    \mathbb{E}(y_{it}|\alpha_i, \zeta_i, \mathbf{x}_i, \mathbf{v}_i)= \omega_i+\mathbf{x}_{it}\beta+\rho v_{it}
 \end{equation}
 
-\section{Findings}
+Because $\mathbf{s}_i$ is a function of $(\mathbf{x}_i, \mathbf{v_i})$, equation \ref{eq:W1995-4.4} implies that
+\begin{equation}
+    \mathbb{E}(y_{it}|\omega_i, \mathbf{x}_i, \mathbf{v}_i)= \omega_i+\mathbf{x}_{it}\beta+\rho v_{it},
+\end{equation}
+
+which means that $\mathbf{x}_{it}$ and $\mathbf{v}_{it}$ are strictly exogenous conditional on $\omega_i$. The bias-correction is necessary because $\rho$ is generally different from zero and, therefore, the asymptotic variance of $\hat{theta}\equiv(\hat{\beta}',\hat{\rho})'$ needs to be adjusted to the first stage estimation of $\delta$.
+
+\begin{proposition}\citep[][Procedure 4.1.1]{wooldridge1995}
+\label{prop:correct}
+
+\textbf{Step 1} and \textbf{Step2} are the same as in Proposition \ref{prop:test}
+
+\textbf{Step 3:} To estimate the asymptotic variance of $\hat{\theta}$, use the Panel Bootstrap proposed in \citep{semykina2010}.
+
+\qed
+\end{proposition}
+
+\section{Analysis}
 \label{sec:findings}
-
-\section{Simulation}
-\label{sec:simulation}
-
-\section{Discussion}
-\label{sec:discussion}
 
 \section{Conclusion}
 \label{sec:conclusion}

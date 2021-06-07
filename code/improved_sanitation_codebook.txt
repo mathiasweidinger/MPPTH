@@ -1,0 +1,12 @@
+1 - 1 - none
+0 - 2 - toilet on water
+0 - 3 - flush to sewage
+0 - 4 - flush to septic tank
+1 - 5 - pail/bucket
+0 - 6 - covered pit latrine
+1 - 7 - uncovered pit latrine
+0 - 8 - VIP latrine
+1 - 9 - other 
+
+1 = deprived, 0 = non-deprived,
+shared facilities always code to 1!

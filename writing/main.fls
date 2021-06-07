@@ -1350,6 +1350,13 @@ INPUT ..\outputs\buffer.JPG
 INPUT ..\outputs\buffer.JPG
 INPUT ..\outputs\buffer.JPG
 INPUT ..\outputs\buffer.JPG
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
+INPUT ..\outputs\childworkchors.png
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
 INPUT c:\Users\mathias\ROOT\EDU\UM\MA_MPP\MTH4911\MPP_Thesis\writing\main.bbl
@@ -1370,6 +1377,8 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb

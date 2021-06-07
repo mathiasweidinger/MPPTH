@@ -24,6 +24,11 @@ Allen, R.~G., Pereira, L.~S., Raes, D., and Smith, M. (1998).
 \newblock Technical Report~56, {Food and Agricultural Organization of the
   United Nations}, {Rome, Italy}.
 
+\bibitem[Amemiya, 1984]{amemiya1984}
+Amemiya, T. (1984).
+\newblock Tobit models: {{A}} survey.
+\newblock {\em Journal of Econometrics}, 24(1):3--61.
+
 \bibitem[Auffhammer, 2014]{Auffhammer2014b}
 Auffhammer, M. (2014).
 \newblock Economic {{Impacts}} of {{Climate Change}} on {{Agriculture}}.
@@ -344,6 +349,11 @@ Hastie, T., Tibshirani, R., and Friedman, J. (2009).
 \newblock Springer {{Series}} in {{Statistics}}. {Springer New York}, {New
   York, NY}.
 
+\bibitem[Heckman, 1979]{heckman1979}
+Heckman, J.~J. (1979).
+\newblock Sample {{Selection Bias}} as a {{Specification Error}}.
+\newblock {\em Econometrica}, 47(1):153--161.
+
 \bibitem[Hertel and Lobell, 2014]{Hertel2014}
 Hertel, T.~W. and Lobell, D.~B. (2014).
 \newblock Agricultural adaptation to climate change in rich and poor countries:
@@ -590,12 +600,12 @@ Posso, A., editor (2020).
 \bibitem[Ravallion, 2011]{ravallion2011}
 Ravallion, M. (2011).
 \newblock On multidimensional indices of poverty.
-\newblock {\em J Econ Inequal}, 9(2):235--248.
+\newblock {\em The Journal of Economic Inequality}, 9(2):235--248.
 
 \bibitem[Ravallion, 2020]{Ravallion2020}
 Ravallion, M. (2020).
 \newblock On {{Measuring Global Poverty}}.
-\newblock {\em Annu. Rev. Econ.}, 12(1):167--188.
+\newblock {\em Annual Review of Economics}, 12(1):167--188.
 
 \bibitem[Ravallion and Chen, 2009]{Ravallion2009}
 Ravallion, M. and Chen, S. (2009).
@@ -649,6 +659,12 @@ Schultz, T.~W. (1961).
 \newblock Investment in {{Human Capital}}.
 \newblock {\em American Economic Review}, 51(1):1--17.
 
+\bibitem[Semykina and Wooldridge, 2010]{semykina2010}
+Semykina, A. and Wooldridge, J.~M. (2010).
+\newblock Estimating panel data models in the presence of endogeneity and
+  selection.
+\newblock {\em Journal of Econometrics}, 157(2):375--380.
+
 \bibitem[Sen, 1981]{Sen1981a}
 Sen, A. (1981).
 \newblock Market failure and control of labour power: Towards an explanation of
@@ -677,6 +693,11 @@ Timmins, C. and Schlenker, W. (2009).
   {{Resource Economics}}.
 \newblock {\em Annual Review of Resource Economics}, 1(1):351--380.
 
+\bibitem[Tobin, 1958]{tobin1958}
+Tobin, J. (1958).
+\newblock Estimation of {{Relationships}} for {{Limited Dependent Variables}}.
+\newblock {\em Econometrica}, 26(1):24--36.
+
 \bibitem[Tol, 2009]{Tol2009}
 Tol, R. S.~J. (2009).
 \newblock The {{Economic Effects}} of {{Climate Change}}.
@@ -699,6 +720,18 @@ Welch, J.~R., Vincent, J.~R., Auffhammer, M., Moya, P.~F., Dobermann, A., and
   opposing sensitivities to minimum and maximum temperatures.
 \newblock {\em Proceedings of the National Academy of Sciences},
   107(33):14562--14567.
+
+\bibitem[Wooldridge, 1995]{wooldridge1995}
+Wooldridge, J.~M. (1995).
+\newblock Selection corrections for panel data models under conditional mean
+  independence assumptions.
+\newblock {\em Journal of Econometrics}, 68(1):115--132.
+
+\bibitem[Wooldridge, 2010]{wooldridge2010}
+Wooldridge, J.~M. (2010).
+\newblock {\em Econometric {{Analysis}} of {{Cross Section}} and {{Panel
+  Data}}}.
+\newblock {MIT Press}, {Cambridge, MA}, second edition.
 
 \bibitem[{World Bank}, 2021]{WorldBank2021}
 {World Bank} (2021).

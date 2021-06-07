@@ -19,34 +19,7 @@ library(cowplot)
 library(lspline)
 #tic()
 
-load("outputs/panel_unif.Rdata") # load data with mean deviations in units!
-meandev <- NGA_panel[,147:254]
-rm(NGA_panel)
-load("outputs/panel_unif_level.Rdata") # load data with mean deviations in percentages
-NGA_panel %<>% cbind(meandev)
-IVS <- cbind(NGA_panel[,147:254],meandev)
-
-
-
-
-
-NGA_panel$ID <-paste(as.character(NGA_panel$hhid),as.character(NGA_panel$indiv))
-NGA_panel$zone <- factor(NGA_panel$zone, levels = c(1:6), labels = c("north central", "north east", "north west", "south east", "south south", "south west"))
-NGA_panel$sector <- factor(NGA_panel$sector, levels = c(1,2), labels = c("urban", "rural"))
-NGA_panel$sex <- factor(NGA_panel$sex, levels = c(1,2), labels = c("male", "female"))
-NGA_panel %<>%
-  mutate(visit = case_when(t==1 | t==3 | t==5 ~ 1,
-                           t==2 | t==4 | t==6 ~ 2,
-  ))
-
-NGA_panel %<>% mutate(
-  childlabour = case_when(
-    !is.na(childworkchores) & childworkchores > 80 ~ NA_real_,
-    !is.na(childworkchores) & childworkchores ==0 ~ NA_real_,
-    !is.na(childworkchores) & childworkchores <= 80 & childworkchores >0 ~ as.numeric(childworkchores),
-    is.na(childworkchores) ~ NA_real_
-    )
-)
+load("outputs/NGA_panel_final.Rda") # load final data
 
 # SPLINES FOR LEVELS:
 
@@ -820,6 +793,63 @@ knots <- quantile(NGA_panel$wet12_md, probs = c(0.25, 0.5, 0.75))
 boundary <- range(NGA_panel$wet12_md); degree = 3; intercept = FALSE
 wet12_md_spl <- ns(NGA_panel$wet12_md, knots = knots, Boundary.knots = boundary)
 
+### Jeff Wooldridge's heckit extension for unbalanced panel data...
+
+
+# Step 1: For each t, estimate the equation h_it=max(0,x_i \delta_t + v_it)
+#         by standard Tobit, where not x_i = (1, x_i1, x_i2,..., x_iT) and
+#         \delta_t = (\delta_t0, \delta_t1',...,\delta_tT')'
+#         
+#         For s_it = 1, define \hat{v}_it = h_it - x_i \hat{delta_t}.
+
+
+# Step 2: Estimate the equation y_it = x_it\beta + \rho v_it + error_it by
+#         pooled OLS using those observations for which s_it=1, where
+
+
+
+ggplot(data=NGA_panel, aes(x=childwork, color = t)) + 
+  geom_histogram(alpha = 0.8, bins=37, fill = "#cc9a0e") +
+  xlim(-1, 70) +
+  xlab("Child labour weekly hours (excl. chores)") +
+  theme_minimal()
+
+ggplot(data=NGA_panel, aes(x=childworkchores)) + 
+  geom_histogram(alpha = 0.8, bins = 37, fill = "#cc9a0e") +
+  xlim(-1,70) +
+  xlab("Child labour weekly hours (incl. chores)") +
+  theme_minimal()
+
+ggplot(data=NGA_panel, aes(x=childlabour)) + 
+  geom_histogram(alpha = 0.8, bins = 100, fill = "#cc9a0e") +
+  xlim(-1,70) +
+  theme_minimal()
+
+ggplot(data=NGA_panel, aes(x=childwork)) + 
+  geom_histogram(alpha = 0.8, bins = 22, fill = "#cc9a0e") +
+  xlim(-1,70) +
+  theme_minimal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 est1 <- plm(childwork ~ pre01 + tmn01 + tmp01 + tmx01 +
@@ -878,21 +908,13 @@ est2<- felm(childwork ~ pre01_spl + tmn01_spl + tmp01_spl + tmx01_spl +
                         sex + age + sector + totcons + hhsize|
                         ea + zone + visit, data = NGA_panel)
 
+# Residual Diagnostics
+plot(density(resid(est2))) #A density plot
+qqnorm(resid(est2)) # A quantile normal plot - good for checking normality
+qqline(resid(est2))
+
+
+
 stargazer(est1, est2, type = "html", out = "outputs/test.html")
+
 (cbind(AIC(est1,est2),BIC(est1,est2)))
-
-ggplot(data=NGA_panel, aes(tmx02,childworkchores)) +
-  geom_point() +
-  geom_smooth(method=lm) +
-  geom_smooth()
-
-
-
-
-new_DF <- NGA_panel[!is.na(NGA_panel$childwork>0) & !is.na(NGA_panel$hhsize),]
-
-plot_model(est1, type = "est", terms = "01_md")
-effects <- tibble(predict(est1))
-
-ggplot(data=new_DF, aes(x=tmp01,y=effects$`predict(est1)`))+
-  geom_point()

@@ -5,15 +5,15 @@
 \BOOKMARK [2][-]{subsection.2.3}{Economic Effects of Climate Change}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Model}{}% 6
 \BOOKMARK [2][-]{subsection.3.1}{Hypotheses}{section.3}% 7
-\BOOKMARK [1][-]{section.4}{Empirical Analysis}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Case Selection}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Data sources and processing}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.3}{Variables}{section.4}% 11
-\BOOKMARK [3][-]{subsubsection.4.3.1}{GHS variables}{subsection.4.3}% 12
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Climate variables}{subsection.4.3}% 13
-\BOOKMARK [2][-]{subsection.4.4}{Combining GHS and CRU-TS data}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.5}{Empirical approach:}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{Findings}{}% 16
-\BOOKMARK [1][-]{section.6}{Simulation}{}% 17
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 18
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 19
+\BOOKMARK [1][-]{section.4}{Case and data selection}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Data sources and processing}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Variables}{section.4}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.1}{GHS variables}{subsection.4.2}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Climate variables}{subsection.4.2}% 12
+\BOOKMARK [2][-]{subsection.4.3}{Combining GHS and CRU-TS data}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.4}{Climate data preparation}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{Empirical strategy}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{Testing for selection bias}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{Correcting for selection bias}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Analysis}{}% 18
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 19
