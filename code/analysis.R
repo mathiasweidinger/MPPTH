@@ -17,9 +17,148 @@ library(GGally)
 library(PerformanceAnalytics)
 library(cowplot)
 library(lspline)
+library(censReg)
+library(AER)
+library(caret)
+library(pmdplyr)
+library(panelr)
 #tic()
 
 load("outputs/NGA_panel_final.Rda") # load final data
+
+DF_long <- NGA_panel[,c(1:11, 36, 103, 147:254, 257:365, 383:384, 398)]# create subset relevant for analysis
+DF_long <- cbind(DF_long$ID,DF_long[,-231])
+names(DF_long)[1] <- "ID"
+DF_long <- panel_data(DF_long, id=ID, wave = t) # declare a panel dataset
+DF_wide <- widen_panel(DF_long, separator = "___") # transform to wide panel !!!THIS TAKES A WHILE!!!
+DF_wide <- DF_wide[,order(colnames(DF_wide))] # order variables alphabetically
+
+omit_cols <- c("age___1","age___2","age___3","age___4","age___5","age___6",
+               "childworkchores___1","childworkchores___2","childworkchores___3",
+               "childworkchores___4","childworkchores___5","childworkchores___6",
+               "ea___1","ea___2","ea___3","ea___4","ea___5","ea___6","hhid",
+               "hhsize___1","hhsize___2","hhsize___3","hhsize___4","hhsize___5","hhsize___6","ID","indiv",
+               "lga___1","lga___2","lga___3","lga___4","lga___5","lga___6",
+               "MPI___1","MPI___2","MPI___3","MPI___4","MPI___5","MPI___6",
+               "relat_hhh___1","relat_hhh___2","relat_hhh___3","relat_hhh___4","relat_hhh___5","relat_hhh___6",
+               "sector___1","sector___2","sector___3","sector___4","sector___5","sector___6",
+               "sex___1","sex___2","sex___3","sex___4","sex___5","sex___6",
+               "state___1","state___2","state___3","state___4","state___5","state___6", 
+               "totcons___1","totcons___2","totcons___3","totcons___4","totcons___5","totcons___6",
+               "visit___1","visit___2","visit___3","visit___4","visit___5","visit___6",
+               "zone___1","zone___2","zone___3","zone___4","zone___5","zone___6"     
+               )
+DF_wide %>% select(omit_cols) -> DF_wide_nonclim
+DF_wide %>% select(-one_of(omit_cols)) -> DF_wide_clim
+DF_wide_nonclim <- DF_wide_nonclim[,-c(7:12,13:19,27:33,40:45,52:63,70:81)] # take out unnecessary vars
+
+
+IVs <- cbind(DF_wide_nonclim, DF_wide_clim)
+
+DVs <- NGA_panel[,c("t","ID","childworkchores")]
+
+# add all lags/leads to all observations in all t=1,...,6
+DF_tobits <- left_join(DVs, IVs, by = "ID")
+
+### Jeff Wooldridge's heckit extension for unbalanced panel data
+
+# 1. Estimate 6 huge tobits
+
+DF_tob1 <- DF_tobits[DF_tobits$t==1,]
+DF_tob1 %<>% mutate(selector = case_when(
+  !is.na(childworkchores) & childworkchores > 0 ~ 1,
+  childworkchores == 0 ~ 0,
+  is.na(childworkchores) ~ NA_real_
+))
+DF_tob2 <- DF_tobits[DF_tobits$t==2,]
+DF_tob3 <- DF_tobits[DF_tobits$t==3,]
+DF_tob4 <- DF_tobits[DF_tobits$t==4,]
+DF_tob5 <- DF_tobits[DF_tobits$t==5,]
+DF_tob6 <- DF_tobits[DF_tobits$t==6,]
+debugonce(censReg::censReg)
+probit_1 <- glm( selector          ~    age___1+         age___2+         age___3+         age___4+         age___5+      
+                                        age___6+         hhsize___1+      hhsize___2+      hhsize___3+      hhsize___4+      hhsize___5+      hhsize___6+      MPI___1+      
+                                        MPI___2+         MPI___3+         MPI___4+         MPI___5+         MPI___6+         sector___1+      sector___2+      sector___3+   
+                                        sector___4+      sector___5+      sector___6+      totcons___1+     totcons___2+     totcons___3+     totcons___4+     totcons___5+  
+                                        totcons___6+     pre01___1+       pre01___2+       pre01___3+       pre01___4+       pre01___5+       pre01___6+       pre01_md___1+
+                                        pre01_md___2+    pre01_md___3+    pre01_md___4+    pre01_md___5+    pre01_md___6+    pre02___1+       pre02___2+       pre02___3+      
+                                        pre02___4+       pre02___5+       pre02___6+       pre02_md___1+    pre02_md___2+    pre02_md___3+    pre02_md___4+    pre02_md___5+   
+                                        pre02_md___6+    pre03___1+       pre03___2+       pre03___3+       pre03___4+       pre03___5+       pre03___6+       pre03_md___1+   
+                                        pre03_md___2+    pre03_md___3+    pre03_md___4+    pre03_md___5+    pre03_md___6+    pre04___1+       pre04___2+       pre04___3+      
+                                        pre04___4+       pre04___5+       pre04___6+       pre04_md___1+    pre04_md___2+    pre04_md___3+    pre04_md___4+    pre04_md___5+   
+                                        pre04_md___6+    pre05___1+       pre05___2+       pre05___3+       pre05___4+       pre05___5+       pre05___6+       pre05_md___1+   
+                                        pre05_md___2+    pre05_md___3+    pre05_md___4+    pre05_md___5+    pre05_md___6+    pre06___1+       pre06___2+       pre06___3+      
+                                        pre06___4+       pre06___5+       pre06___6+       pre06_md___1+    pre06_md___2+    pre06_md___3+    pre06_md___4+    pre06_md___5+   
+                                        pre06_md___6+    pre07___1+       pre07___2+       pre07___3+       pre07___4+       pre07___5+       pre07___6+       pre07_md___1+   
+                                        pre07_md___2+    pre07_md___3+    pre07_md___4+    pre07_md___5+    pre07_md___6+    pre08___1+       pre08___2+       pre08___3+      
+                                        pre08___4+       pre08___5+       pre08___6+       pre08_md___1+    pre08_md___2+    pre08_md___3+    pre08_md___4+    pre08_md___5+   
+                                        pre08_md___6+    pre09___1+       pre09___2+       pre09___3+       pre09___4+       pre09___5+       pre09___6+       pre09_md___1+   
+                                        pre09_md___2+    pre09_md___3+    pre09_md___4+    pre09_md___5+    pre09_md___6+    pre10___1+       pre10___2+       pre10___3+      
+                                        pre10___4+       pre10___5+       pre10___6+       pre10_md___1+    pre10_md___2+    pre10_md___3+    pre10_md___4+    pre10_md___5+   
+                                        pre10_md___6+    pre11___1+       pre11___2+       pre11___3+       pre11___4+       pre11___5+       pre11___6+       pre11_md___1+   
+                                        pre11_md___2+    pre11_md___3+    pre11_md___4+    pre11_md___5+    pre11_md___6+    pre12___1+       pre12___2+       pre12___3+      
+                                        pre12___4+       pre12___5+       pre12___6+       pre12_md___1+    pre12_md___2+    pre12_md___3+    pre12_md___4+    pre12_md___5+   
+                                        pre12_md___6+    tmn01___1+       tmn01___2+       tmn01___3+       tmn01___4+       tmn01___5+       tmn01___6+       tmn01_md___1+   
+                                        tmn01_md___2+    tmn01_md___3+    tmn01_md___4+    tmn01_md___5+    tmn01_md___6+    tmn02___1+       tmn02___2+       tmn02___3+      
+                                        tmn02___4+       tmn02___5+       tmn02___6+       tmn02_md___1+    tmn02_md___2+    tmn02_md___3+    tmn02_md___4+    tmn02_md___5+   
+                                        tmn02_md___6+    tmn03___1+       tmn03___2+       tmn03___3+       tmn03___4+       tmn03___5+       tmn03___6+       tmn03_md___1+
+                                        tmn03_md___2+    tmn03_md___3+    tmn03_md___4+    tmn03_md___5+    tmn03_md___6+    tmn04___1+       tmn04___2+       tmn04___3+      
+                                        tmn04___4+       tmn04___5+       tmn04___6+       tmn04_md___1+    tmn04_md___2+    tmn04_md___3+    tmn04_md___4+    tmn04_md___5+   
+                                        tmn04_md___6+    tmn05___1+       tmn05___2+       tmn05___3+       tmn05___4+       tmn05___5+       tmn05___6+       tmn05_md___1+   
+                                        tmn05_md___2+    tmn05_md___3+    tmn05_md___4+    tmn05_md___5+    tmn05_md___6+    tmn06___1+       tmn06___2+       tmn06___3+      
+                                        tmn06___4+       tmn06___5+       tmn06___6+       tmn06_md___1+    tmn06_md___2+    tmn06_md___3+    tmn06_md___4+    tmn06_md___5+   
+                                        tmn06_md___6+    tmn07___1+       tmn07___2+       tmn07___3+       tmn07___4+       tmn07___5+       tmn07___6+       tmn07_md___1+   
+                                        tmn07_md___2+    tmn07_md___3+    tmn07_md___4+    tmn07_md___5+    tmn07_md___6+    tmn08___1+       tmn08___2+       tmn08___3+      
+                                        tmn08___4+       tmn08___5+       tmn08___6+       tmn08_md___1+    tmn08_md___2+    tmn08_md___3+    tmn08_md___4+    tmn08_md___5+   
+                                        tmn08_md___6+    tmn09___1+       tmn09___2+       tmn09___3+       tmn09___4+       tmn09___5+       tmn09___6+       tmn09_md___1+   
+                                        tmn09_md___2+    tmn09_md___3+    tmn09_md___4+    tmn09_md___5+    tmn09_md___6+    tmn10___1+       tmn10___2+       tmn10___3+      
+                                        tmn10___4+       tmn10___5+       tmn10___6+       tmn10_md___1+    tmn10_md___2+    tmn10_md___3+    tmn10_md___4+    tmn10_md___5+   
+                                        tmn10_md___6+    tmn11___1+       tmn11___2+       tmn11___3+       tmn11___4+       tmn11___5+       tmn11___6+       tmn11_md___1+   
+                                        tmn11_md___2+    tmn11_md___3+    tmn11_md___4+    tmn11_md___5+    tmn11_md___6+    tmn12___1+       tmn12___2+       tmn12___3+      
+                                        tmn12___4+       tmn12___5+       tmn12___6+       tmn12_md___1+    tmn12_md___2+    tmn12_md___3+    tmn12_md___4+    tmn12_md___5+   
+                                        tmn12_md___6+    tmp01___1+       tmp01___2+       tmp01___3+       tmp01___4+       tmp01___5+       tmp01___6+       tmp01_md___1+   
+                                        tmp01_md___2+    tmp01_md___3+    tmp01_md___4+    tmp01_md___5+    tmp01_md___6+    tmp02___1+       tmp02___2+       tmp02___3+      
+                                        tmp02___4+       tmp02___5+       tmp02___6+       tmp02_md___1+    tmp02_md___2+    tmp02_md___3+    tmp02_md___4+    tmp02_md___5+   
+                                        tmp02_md___6+    tmp03___1+       tmp03___2+       tmp03___3+       tmp03___4+       tmp03___5+       tmp03___6+       tmp03_md___1+   
+                                        tmp03_md___2+    tmp03_md___3+    tmp03_md___4+    tmp03_md___5+    tmp03_md___6+    tmp04___1+       tmp04___2+       tmp04___3+      
+                                        tmp04___4+       tmp04___5+       tmp04___6+       tmp04_md___1+    tmp04_md___2+    tmp04_md___3+    tmp04_md___4+    tmp04_md___5+   
+                                        tmp04_md___6+    tmp05___1+       tmp05___2+       tmp05___3+       tmp05___4+       tmp05___5+       tmp05___6+       tmp05_md___1+   
+                                        tmp05_md___2+    tmp05_md___3+    tmp05_md___4+    tmp05_md___5+    tmp05_md___6+    tmp06___1+       tmp06___2+       tmp06___3+
+                                        tmp06___4+       tmp06___5+       tmp06___6+       tmp06_md___1+    tmp06_md___2+    tmp06_md___3+    tmp06_md___4+    tmp06_md___5+   
+                                        tmp06_md___6+    tmp07___1+       tmp07___2+       tmp07___3+       tmp07___4+       tmp07___5+       tmp07___6+       tmp07_md___1+   
+                                        tmp07_md___2+    tmp07_md___3+    tmp07_md___4+    tmp07_md___5+    tmp07_md___6+    tmp08___1+       tmp08___2+       tmp08___3+      
+                                        tmp08___4+       tmp08___5+       tmp08___6+       tmp08_md___1+    tmp08_md___2+    tmp08_md___3+    tmp08_md___4+    tmp08_md___5+   
+                                        tmp08_md___6+    tmp09___1+       tmp09___2+       tmp09___3+       tmp09___4+       tmp09___5+       tmp09___6+       tmp09_md___1+   
+                                        tmp09_md___2+    tmp09_md___3+    tmp09_md___4+    tmp09_md___5+    tmp09_md___6+    tmp10___1+       tmp10___2+       tmp10___3+      
+                                        tmp10___4+       tmp10___5+       tmp10___6+       tmp10_md___1+    tmp10_md___2+    tmp10_md___3+    tmp10_md___4+    tmp10_md___5+   
+                                        tmp10_md___6+    tmp11___1+       tmp11___2+       tmp11___3+       tmp11___4+       tmp11___5+       tmp11___6+       tmp11_md___1+   
+                                        tmp11_md___2+    tmp11_md___3+    tmp11_md___4+    tmp11_md___5+    tmp11_md___6+    tmp12___1+       tmp12___2+       tmp12___3+      
+                                        tmp12___4+       tmp12___5+       tmp12___6+       tmp12_md___1+    tmp12_md___2+    tmp12_md___3+    tmp12_md___4+    tmp12_md___5+   
+                                        tmp12_md___6+    tmx01___1+       tmx01___2+       tmx01___3+       tmx01___4+       tmx01___5+       tmx01___6+       tmx01_md___1+   
+                                        tmx01_md___2+    tmx01_md___3+    tmx01_md___4+    tmx01_md___5+    tmx01_md___6+    tmx02___1+       tmx02___2+       tmx02___3+      
+                                        tmx02___4+       tmx02___5+       tmx02___6+       tmx02_md___1+    tmx02_md___2+    tmx02_md___3+    tmx02_md___4+    tmx02_md___5+   
+                                        tmx02_md___6+    tmx03___1+       tmx03___2+       tmx03___3+       tmx03___4+       tmx03___5+       tmx03___6+       tmx03_md___1+   
+                                        tmx03_md___2+    tmx03_md___3+    tmx03_md___4+    tmx03_md___5+    tmx03_md___6+    tmx04___1+       tmx04___2+       tmx04___3+      
+                                        tmx04___4+       tmx04___5+       tmx04___6+       tmx04_md___1+    tmx04_md___2+    tmx04_md___3+    tmx04_md___4+    tmx04_md___5+   
+                                        tmx04_md___6+    tmx05___1+       tmx05___2+       tmx05___3+       tmx05___4+       tmx05___5+       tmx05___6+       tmx05_md___1+   
+                                        tmx05_md___2+    tmx05_md___3+    tmx05_md___4+    tmx05_md___5+    tmx05_md___6+    tmx06___1+       tmx06___2+       tmx06___3+      
+                                        tmx06___4+       tmx06___5+       tmx06___6+       tmx06_md___1+    tmx06_md___2+    tmx06_md___3+    tmx06_md___4+    tmx06_md___5+   
+                                        tmx06_md___6+    tmx07___1+       tmx07___2+       tmx07___3+       tmx07___4+       tmx07___5+       tmx07___6+       tmx07_md___1+   
+                                        tmx07_md___2+    tmx07_md___3+    tmx07_md___4+    tmx07_md___5+    tmx07_md___6+    tmx08___1+       tmx08___2+       tmx08___3+      
+                                        tmx08___4+       tmx08___5+       tmx08___6+       tmx08_md___1+    tmx08_md___2+    tmx08_md___3+    tmx08_md___4+    tmx08_md___5+  
+                                        tmx08_md___6+    tmx09___1+       tmx09___2+       tmx09___3+       tmx09___4+       tmx09___5+       tmx09___6+       tmx09_md___1+   
+                                        tmx09_md___2+    tmx09_md___3+    tmx09_md___4+    tmx09_md___5+    tmx09_md___6+    tmx10___1+       tmx10___2+       tmx10___3+      
+                                        tmx10___4+       tmx10___5+       tmx10___6+       tmx10_md___1+    tmx10_md___2+    tmx10_md___3+    tmx10_md___4+    tmx10_md___5+   
+                                        tmx10_md___6+    tmx11___1+       tmx11___2+       tmx11___3+       tmx11___4+       tmx11___5+       tmx11___6+       tmx11_md___1+   
+                                        tmx11_md___2+    tmx11_md___3+    tmx11_md___4+    tmx11_md___5+    tmx11_md___6+    tmx12___1+       tmx12___2+       tmx12___3+      
+                                        tmx12___4+       tmx12___5+       tmx12___6+       tmx12_md___1+    tmx12_md___2+    tmx12_md___3+    tmx12_md___4+    tmx12_md___5+   
+                                        tmx12_md___6, family = binomial(link = "probit"), data = DF_tob1)
+
+summary(probit_1)
+stargazer(tobit_1, type = "text")
+
+
+
 
 # SPLINES FOR LEVELS:
 
@@ -793,18 +932,14 @@ knots <- quantile(NGA_panel$wet12_md, probs = c(0.25, 0.5, 0.75))
 boundary <- range(NGA_panel$wet12_md); degree = 3; intercept = FALSE
 wet12_md_spl <- ns(NGA_panel$wet12_md, knots = knots, Boundary.knots = boundary)
 
-### Jeff Wooldridge's heckit extension for unbalanced panel data...
 
 
-# Step 1: For each t, estimate the equation h_it=max(0,x_i \delta_t + v_it)
-#         by standard Tobit, where not x_i = (1, x_i1, x_i2,..., x_iT) and
-#         \delta_t = (\delta_t0, \delta_t1',...,\delta_tT')'
-#         
-#         For s_it = 1, define \hat{v}_it = h_it - x_i \hat{delta_t}.
 
 
-# Step 2: Estimate the equation y_it = x_it\beta + \rho v_it + error_it by
-#         pooled OLS using those observations for which s_it=1, where
+
+
+
+
 
 
 
@@ -830,29 +965,14 @@ ggplot(data=NGA_panel, aes(x=childwork)) +
   xlim(-1,70) +
   theme_minimal()
 
+summary(tobit_1)
+
+vars <- NGA_panel[,c(1:11, 36, 103, 147:254, 257:365, 398)]
+
+cor(vars,use = "complete.obs")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-est1 <- plm(childwork ~ pre01 + tmn01 + tmp01 + tmx01 +
+est1 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
                          pre02 + tmn02 + tmp02 + tmx02 +
                          pre03 + tmn03 + tmp03 + tmx03 +
                          pre04 + tmn04 + tmp04 + tmx04 +
@@ -876,37 +996,160 @@ est1 <- plm(childwork ~ pre01 + tmn01 + tmp01 + tmx01 +
                          pre10_md + tmn10_md + tmp10_md + tmx10_md +
                          pre11_md + tmn11_md + tmp11_md + tmx11_md +
                          pre12_md + tmn12_md + tmp12_md + tmx12_md +
-                         sex + age + sector + totcons + hhsize,
-                         data = NGA_panel,
-                         index =c("ID", "t"),
-                         model = "within")
+                         sex + age + sector + totcons + hhsize + MPI,
+                         left=0, right=Inf,data = NGA_panel[NGA_panel$t==1,], robust = T)
 
-est2<- felm(childwork ~ pre01_spl + tmn01_spl + tmp01_spl + tmx01_spl +
-                        pre02_spl + tmn02_spl + tmp02_spl + tmx02_spl +
-                        pre03_spl + tmn03_spl + tmp03_spl + tmx03_spl +
-                        pre04_spl + tmn04_spl + tmp04_spl + tmx04_spl +
-                        pre05_spl + tmn05_spl + tmp05_spl + tmx05_spl +
-                        pre06_spl + tmn06_spl + tmp06_spl + tmx06_spl +
-                        pre07_spl + tmn07_spl + tmp07_spl + tmx07_spl +
-                        pre08_spl + tmn08_spl + tmp08_spl + tmx08_spl +
-                        pre09_spl + tmn09_spl + tmp09_spl + tmx09_spl +
-                        pre10_spl + tmn10_spl + tmp10_spl + tmx10_spl +
-                        pre11_spl + tmn11_spl + tmp11_spl + tmx11_spl +
-                        pre12_spl + tmn12_spl + tmp12_spl + tmx12_spl +
-                        pre01_md_spl + tmn01_md_spl + tmp01_md_spl + tmx01_md_spl +
-                        pre02_md_spl + tmn02_md_spl + tmp02_md_spl + tmx02_md_spl +
-                        pre03_md_spl + tmn03_md_spl + tmp03_md_spl + tmx03_md_spl +
-                        pre04_md_spl + tmn04_md_spl + tmp04_md_spl + tmx04_md_spl +
-                        pre05_md_spl + tmn05_md_spl + tmp05_md_spl + tmx05_md_spl +
-                        pre06_md_spl + tmn06_md_spl + tmp06_md_spl + tmx06_md_spl +
-                        pre07_md_spl + tmn07_md_spl + tmp07_md_spl + tmx07_md_spl +
-                        pre08_md_spl + tmn08_md_spl + tmp08_md_spl + tmx08_md_spl +
-                        pre09_md_spl + tmn09_md_spl + tmp09_md_spl + tmx09_md_spl +
-                        pre10_md_spl + tmn10_md_spl + tmp10_md_spl + tmx10_md_spl +
-                        pre11_md_spl + tmn11_md_spl + tmp11_md_spl + tmx11_md_spl +
-                        pre12_md_spl + tmn12_md_spl + tmp12_md_spl + tmx12_md_spl +
-                        sex + age + sector + totcons + hhsize|
-                        ea + zone + visit, data = NGA_panel)
+est2 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
+                pre02 + tmn02 + tmp02 + tmx02 +
+                pre03 + tmn03 + tmp03 + tmx03 +
+                pre04 + tmn04 + tmp04 + tmx04 +
+                pre05 + tmn05 + tmp05 + tmx05 +
+                pre06 + tmn06 + tmp06 + tmx06 +
+                pre07 + tmn07 + tmp07 + tmx07 +
+                pre08 + tmn08 + tmp08 + tmx08 +
+                pre09 + tmn09 + tmp09 + tmx09 +
+                pre10 + tmn10 + tmp10 + tmx10 +
+                pre11 + tmn11 + tmp11 + tmx11 +
+                pre12 + tmn12 + tmp12 + tmx12 +
+                pre01_md + tmn01_md + tmp01_md + tmx01_md +
+                pre02_md + tmn02_md + tmp02_md + tmx02_md +
+                pre03_md + tmn03_md + tmp03_md + tmx03_md +
+                pre04_md + tmn04_md + tmp04_md + tmx04_md +
+                pre05_md + tmn05_md + tmp05_md + tmx05_md +
+                pre06_md + tmn06_md + tmp06_md + tmx06_md +
+                pre07_md + tmn07_md + tmp07_md + tmx07_md +
+                pre08_md + tmn08_md + tmp08_md + tmx08_md +
+                pre09_md + tmn09_md + tmp09_md + tmx09_md +
+                pre10_md + tmn10_md + tmp10_md + tmx10_md +
+                pre11_md + tmn11_md + tmp11_md + tmx11_md +
+                pre12_md + tmn12_md + tmp12_md + tmx12_md +
+                sex + age + sector + totcons + hhsize + MPI,
+              left=0, right=Inf,data = NGA_panel[NGA_panel$t==2,], robust = T)
+
+est3 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
+                pre02 + tmn02 + tmp02 + tmx02 +
+                pre03 + tmn03 + tmp03 + tmx03 +
+                pre04 + tmn04 + tmp04 + tmx04 +
+                pre05 + tmn05 + tmp05 + tmx05 +
+                pre06 + tmn06 + tmp06 + tmx06 +
+                pre07 + tmn07 + tmp07 + tmx07 +
+                pre08 + tmn08 + tmp08 + tmx08 +
+                pre09 + tmn09 + tmp09 + tmx09 +
+                pre10 + tmn10 + tmp10 + tmx10 +
+                pre11 + tmn11 + tmp11 + tmx11 +
+                pre12 + tmn12 + tmp12 + tmx12 +
+                pre01_md + tmn01_md + tmp01_md + tmx01_md +
+                pre02_md + tmn02_md + tmp02_md + tmx02_md +
+                pre03_md + tmn03_md + tmp03_md + tmx03_md +
+                pre04_md + tmn04_md + tmp04_md + tmx04_md +
+                pre05_md + tmn05_md + tmp05_md + tmx05_md +
+                pre06_md + tmn06_md + tmp06_md + tmx06_md +
+                pre07_md + tmn07_md + tmp07_md + tmx07_md +
+                pre08_md + tmn08_md + tmp08_md + tmx08_md +
+                pre09_md + tmn09_md + tmp09_md + tmx09_md +
+                pre10_md + tmn10_md + tmp10_md + tmx10_md +
+                pre11_md + tmn11_md + tmp11_md + tmx11_md +
+                pre12_md + tmn12_md + tmp12_md + tmx12_md +
+                sex + age + sector + totcons + hhsize + MPI,
+              left=0, right=Inf,data = NGA_panel[NGA_panel$t==3,], robust = T)
+
+est4 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
+                pre02 + tmn02 + tmp02 + tmx02 +
+                pre03 + tmn03 + tmp03 + tmx03 +
+                pre04 + tmn04 + tmp04 + tmx04 +
+                pre05 + tmn05 + tmp05 + tmx05 +
+                pre06 + tmn06 + tmp06 + tmx06 +
+                pre07 + tmn07 + tmp07 + tmx07 +
+                pre08 + tmn08 + tmp08 + tmx08 +
+                pre09 + tmn09 + tmp09 + tmx09 +
+                pre10 + tmn10 + tmp10 + tmx10 +
+                pre11 + tmn11 + tmp11 + tmx11 +
+                pre12 + tmn12 + tmp12 + tmx12 +
+                pre01_md + tmn01_md + tmp01_md + tmx01_md +
+                pre02_md + tmn02_md + tmp02_md + tmx02_md +
+                pre03_md + tmn03_md + tmp03_md + tmx03_md +
+                pre04_md + tmn04_md + tmp04_md + tmx04_md +
+                pre05_md + tmn05_md + tmp05_md + tmx05_md +
+                pre06_md + tmn06_md + tmp06_md + tmx06_md +
+                pre07_md + tmn07_md + tmp07_md + tmx07_md +
+                pre08_md + tmn08_md + tmp08_md + tmx08_md +
+                pre09_md + tmn09_md + tmp09_md + tmx09_md +
+                pre10_md + tmn10_md + tmp10_md + tmx10_md +
+                pre11_md + tmn11_md + tmp11_md + tmx11_md +
+                pre12_md + tmn12_md + tmp12_md + tmx12_md +
+                sex + age + sector + totcons + hhsize + MPI,
+              left=0, right=Inf,data = NGA_panel[NGA_panel$t==4,], robust = T)
+
+est5 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
+                pre02 + tmn02 + tmp02 + tmx02 +
+                pre03 + tmn03 + tmp03 + tmx03 +
+                pre04 + tmn04 + tmp04 + tmx04 +
+                pre05 + tmn05 + tmp05 + tmx05 +
+                pre06 + tmn06 + tmp06 + tmx06 +
+                pre07 + tmn07 + tmp07 + tmx07 +
+                pre08 + tmn08 + tmp08 + tmx08 +
+                pre09 + tmn09 + tmp09 + tmx09 +
+                pre10 + tmn10 + tmp10 + tmx10 +
+                pre11 + tmn11 + tmp11 + tmx11 +
+                pre12 + tmn12 + tmp12 + tmx12 +
+                pre01_md + tmn01_md + tmp01_md + tmx01_md +
+                pre02_md + tmn02_md + tmp02_md + tmx02_md +
+                pre03_md + tmn03_md + tmp03_md + tmx03_md +
+                pre04_md + tmn04_md + tmp04_md + tmx04_md +
+                pre05_md + tmn05_md + tmp05_md + tmx05_md +
+                pre06_md + tmn06_md + tmp06_md + tmx06_md +
+                pre07_md + tmn07_md + tmp07_md + tmx07_md +
+                pre08_md + tmn08_md + tmp08_md + tmx08_md +
+                pre09_md + tmn09_md + tmp09_md + tmx09_md +
+                pre10_md + tmn10_md + tmp10_md + tmx10_md +
+                pre11_md + tmn11_md + tmp11_md + tmx11_md +
+                pre12_md + tmn12_md + tmp12_md + tmx12_md +
+                sex + age + sector + totcons + hhsize + MPI,
+              left=0, right=Inf,data = NGA_panel[NGA_panel$t==5,], robust = T)
+
+est6 <- tobit(childworkchores ~ pre01 + tmn01 + tmp01 + tmx01 +
+                pre02 + tmn02 + tmp02 + tmx02 +
+                pre03 + tmn03 + tmp03 + tmx03 +
+                pre04 + tmn04 + tmp04 + tmx04 +
+                pre05 + tmn05 + tmp05 + tmx05 +
+                pre06 + tmn06 + tmp06 + tmx06 +
+                pre07 + tmn07 + tmp07 + tmx07 +
+                pre08 + tmn08 + tmp08 + tmx08 +
+                pre09 + tmn09 + tmp09 + tmx09 +
+                pre10 + tmn10 + tmp10 + tmx10 +
+                pre11 + tmn11 + tmp11 + tmx11 +
+                pre12 + tmn12 + tmp12 + tmx12 +
+                pre01_md + tmn01_md + tmp01_md + tmx01_md +
+                pre02_md + tmn02_md + tmp02_md + tmx02_md +
+                pre03_md + tmn03_md + tmp03_md + tmx03_md +
+                pre04_md + tmn04_md + tmp04_md + tmx04_md +
+                pre05_md + tmn05_md + tmp05_md + tmx05_md +
+                pre06_md + tmn06_md + tmp06_md + tmx06_md +
+                pre07_md + tmn07_md + tmp07_md + tmx07_md +
+                pre08_md + tmn08_md + tmp08_md + tmx08_md +
+                pre09_md + tmn09_md + tmp09_md + tmx09_md +
+                pre10_md + tmn10_md + tmp10_md + tmx10_md +
+                pre11_md + tmn11_md + tmp11_md + tmx11_md +
+                pre12_md + tmn12_md + tmp12_md + tmx12_md +
+                sex + age + sector + totcons + hhsize + MPI,
+              left=0, right=Inf,data = NGA_panel[NGA_panel$t==6,], robust = T)
+
+summary(est1)
+summary(est2)
+summary(est3)
+summary(est4)
+summary(est5)
+summary(est6)
+
+
+
+
+
+
+
+
+
+
 
 # Residual Diagnostics
 plot(density(resid(est2))) #A density plot
@@ -915,6 +1158,9 @@ qqline(resid(est2))
 
 
 
-stargazer(est1, est2, type = "html", out = "outputs/test.html")
+
+
+
+stargazer(est1,est2, est3,est4,est5,est6, type = "html", out = "test.html")
 
 (cbind(AIC(est1,est2),BIC(est1,est2)))
