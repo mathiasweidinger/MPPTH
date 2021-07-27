@@ -6,7 +6,7 @@ from sympy.solvers import solve
 import sympy as sp
 
 # define the maximization variables
-X1, X2, X3, X4, LC, LA, s, u = sp.var('X_1, X_2, X_3, X_4, L_C, L_A, s, u', positive=True);
+X1, X2, LC, LA, s, u = sp.var('X_1, X_2, L_C, L_A, s, u', positive=True);
 
 # import exogenous variables
 

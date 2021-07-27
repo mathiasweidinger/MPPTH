@@ -12,10 +12,10 @@ library(tmap) # I can make maps with this.
 
 # Load CRU raster data
 # Source: https://http://data.ceda.ac.uk/badc/cru/data/cru_ts/cru_ts_4.04/data/...
-tmx <- raster("inputs/climate_data/cru_data/cru_ts4.04.1901.2019.tmx.dat.nc")
-tmn <- raster("inputs/climate_data/cru_data/cru_ts4.04.1901.2019.tmn.dat.nc")
-tmp <- raster("inputs/climate_data/cru_data/cru_ts4.04.1901.2019.tmp.dat.nc")
-pre <- raster("inputs/climate_data/cru_data/cru_ts4.04.1901.2019.pre.dat.nc")
+tmx <- raster("inputs/climate_data/cru_data/cru_ts4.05.1901.2020.tmx.dat.nc")
+tmn <- raster("inputs/climate_data/cru_data/cru_ts4.05.1901.2020.tmn.dat.nc")
+tmp <- raster("inputs/climate_data/cru_data/cru_ts4.05.1901.2020.tmp.dat.nc")
+pre <- raster("inputs/climate_data/cru_data/cru_ts4.05.1901.2020.pre.dat.nc")
 
 # Load Nigeria shapefile, transform to raster CRS, and simplify for performance
 # Source: https://gadm.org/download_country_v3.html
