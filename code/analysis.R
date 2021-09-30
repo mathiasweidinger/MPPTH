@@ -22,9 +22,32 @@ library(AER)
 library(caret)
 library(pmdplyr)
 library(panelr)
+library(ggpubr)
 #tic()
 
 load("outputs/NGA_panel_final.Rda") # load final data
+
+# distribution of IV
+
+NGA_panel %>% 
+  ggplot() +
+  geom_histogram(aes(childworkchores), fill = "grey", color = "black") +
+  theme_minimal() +
+  xlab("weekly work hours") +
+  ylab("count")
+
+
+# summary statistics
+
+require(reporttools)
+data <- NGA_panel[NGA_panel$age<18,]
+data$totcons <- data$totcons/1000
+vars <- data[,c('childworkchores','hhsize','totcons','MPI','age')]
+group <- data[,c('t')]
+
+## display default statistics, only use a subset of observations, grouped analysis
+tableContinuous(vars = vars, group = group, prec = 1, cap = "GHS Variables", lab = "tab: descr stat", na.rm=T, stats=c("n", "min", "q1", "median",
+                                                                                                                       "mean", "q3", "max", "na"))
 
 DF_long <- NGA_panel[,c(1:11, 36, 103, 147:254, 257:365, 383:384, 398)]# create subset relevant for analysis
 DF_long <- cbind(DF_long$ID,DF_long[,-231])

@@ -1,0 +1,29 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{6}{section.1}%
+\contentsline {section}{\numberline {2}Literature}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Child labour}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Agriculture and labour supply}{15}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Economic effects of climate change}{17}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Model}{21}{section.3}%
+\contentsline {paragraph}{Preliminaries:}{22}{section*.7}%
+\contentsline {paragraph}{Household preferences:}{23}{section*.8}%
+\contentsline {paragraph}{Labour equivalence:}{23}{section*.9}%
+\contentsline {paragraph}{Agricultural production:}{24}{section*.10}%
+\contentsline {paragraph}{Household problem:}{24}{section*.11}%
+\contentsline {section}{\numberline {4}Case selection and data processing}{27}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Climate and agriculture in Nigeria}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Data sources}{30}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Variables}{31}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}GHS variables}{32}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Climate variables}{34}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Point value extraction from the 2D grid}{36}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Econometric strategy}{38}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Recovering local and instantaneous non-linear effects}{39}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Correcting for selection bias}{43}{subsection.5.2}%
+\contentsline {paragraph}{Procedure 4.1.1. \citep [][]{semykina2010}:}{46}{section*.18}%
+\contentsline {section}{\numberline {6}Findings}{47}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{52}{section.7}%
+\contentsline {section}{References}{55}{section.7}%
+\contentsline {section}{\numberline {A}Annex: Extensions to the theoretical model}{68}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Easing assumptions on time allocation}{68}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Children's productivity and adult supervision}{68}{subsection.A.2}%
